@@ -14,6 +14,8 @@ import {
   Text
 } from "spectacle";
 
+import { colors } from 'ooni-components'
+
 // Import theme
 import createTheme from "spectacle/lib/themes/default";
 
@@ -22,12 +24,12 @@ require("normalize.css");
 
 const theme = createTheme({
   primary: "white",
-  secondary: "#1F2022",
-  tertiary: "#03A9FC",
-  quarternary: "#CECECE"
+  secondary: colors.palette.blue5,
+  tertiary: colors.palette.gray3,
+  quarternary: colors.palette.gray3
 }, {
-  primary: "Montserrat",
-  secondary: "Helvetica"
+  primary: { name: "Fira Sans", googleFont: true, styles: [ "400", "300" ] },
+  secondary: { name: "Fira Sans", googleFont: true, styles: [ "600" ] },
 });
 
 export default class Presentation extends React.Component {
@@ -36,10 +38,10 @@ export default class Presentation extends React.Component {
       <Deck transition={["zoom", "slide"]} transitionDuration={500} theme={theme}>
         <Slide transition={["zoom"]} bgColor="primary">
           <Heading size={1} fit caps lineHeight={1} textColor="secondary">
-            Spectacle Boilerplate
+            OONI
           </Heading>
           <Text margin="10px 0 0" textColor="tertiary" size={1} fit bold>
-            open the presentation/index.js file to get started
+          Let's Fight Internet Censorship Together
           </Text>
         </Slide>
         <Slide transition={["fade"]} bgColor="tertiary">
