@@ -272,7 +272,8 @@ export const theme = {
       margin: "0.5rem auto"
     },
     link: {
-      textDecoration: "none"
+      textDecoration: "none",
+      color: brand.blue
     },
     listItem: {
       fontSize: "2.66rem"
