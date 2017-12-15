@@ -6,6 +6,10 @@ import styled from 'styled-components'
 import chroma from 'chroma-js'
 import { colors } from 'ooni-components'
 
+import FaApple from 'react-icons/lib/fa/apple'
+import FaAndroid from 'react-icons/lib/fa/android'
+import MdLaptop from 'react-icons/lib/md/laptop'
+
 // Import Spectacle Core tags
 import {
   Image,
@@ -35,6 +39,7 @@ const images = {
   CCCLogo: require("../assets/34C3Logo.svg"),
   OONIHorizontalColor: require("ooni-components/components/svgs/logos/OONI-HorizontalColor.svg"),
   OONIVerticalColor: require("ooni-components/components/svgs/logos/OONI-VerticalColor.svg"),
+  ProbeVerticalColor: require("ooni-components/components/svgs/logos/Probe-VerticalColor.svg"),
   FlagOfCuba: require("../assets/Flag_of_Cuba.svg"),
   FlagOfEthiopia: require("../assets/Flag_of_Ethiopia.svg"),
   FlagOfIndonesia: require("../assets/Flag_of_Indonesia.svg"),
@@ -229,8 +234,8 @@ export default class Presentation extends React.Component {
           </WorldDotsBg>
         </Slide>
         <Slide transition={["fade"]}>
-          <Heading size={3} caps fit textColor="secondary">
-            OONI IS ABOUT
+          <Heading size={2} caps textColor="secondary">
+            OONI Is
           </Heading>
           <Appear fid="1">
             <Heading size={2} caps fit textColor="primary">
@@ -248,9 +253,14 @@ export default class Presentation extends React.Component {
             </Heading>
           </Appear>
           <Appear fid="4">
+            <div>
             <Heading size={3} caps fit textColor="secondary">
-              Reproducible Research
+              For Reproducible
             </Heading>
+            <Heading size={3} caps fit textColor="secondary">
+              Research!
+            </Heading>
+            </div>
           </Appear>
         </Slide>
         <Slide transition={["fade"]} bgImage={images.FlagOfEthiopia} bgDarken={0.7} bgSize='120%'>
@@ -343,6 +353,80 @@ export default class Presentation extends React.Component {
             )
           })}
           </EcosystemContainer>
+        </Slide>
+
+        <Slide transition={["fade"]}>
+          <Layout>
+          <Fill>
+          <Image src={images.ProbeVerticalColor} width={200}/>
+          </Fill>
+          <Fill>
+            <Heading size={4} fit caps textColor="secondary">Measurement App For</Heading>
+            <Layout style={{paddingTop: '20px'}}>
+              <Fill style={{marginRight: '30px'}}>
+                <Layout style={{paddingBottom: '20px'}}>
+                  <Fill>
+                  <FaApple width='100%' height='100%' />
+                  </Fill>
+                  <Fill>
+                  <FaAndroid width='100%' height='100%'/>
+                  </Fill>
+                </Layout>
+                <Heading size={4} textColor="primary">Android</Heading>
+                <Heading size={4} textColor="primary">iOS</Heading>
+              </Fill>
+              <Fill style={{marginLeft: '30px'}}>
+                <Layout style={{paddingBottom: '20px'}}>
+                  <Fill>
+                    <MdLaptop width='60%' height='100%' />
+                  </Fill>
+                </Layout>
+                <Heading size={4} textColor="primary">macOS</Heading>
+                <Heading size={4} textColor="primary">Linux</Heading>
+              </Fill>
+            </Layout>
+          </Fill>
+          </Layout>
+        </Slide>
+
+        <Slide transition={["fade"]}>
+          <Heading textColor="secondary">XXX</Heading>
+          <Heading textColor="secondary">OONI Software tests</Heading>
+        </Slide>
+
+        <Slide transition={["fade"]}>
+          <Heading textColor="secondary">XXX</Heading>
+          <Heading textColor="secondary">OONI Probe Mobile apps</Heading>
+        </Slide>
+
+        <Slide transition={["fade"]}>
+          <Heading textColor="secondary">XXX</Heading>
+          <Heading textColor="secondary">OONI Probe desktop & CLI</Heading>
+        </Slide>
+
+        <Slide transition={["fade"]}>
+          <Heading textColor="secondary">XXX</Heading>
+          <Heading textColor="secondary">OONI Run</Heading>
+        </Slide>
+
+        <Slide transition={["fade"]}>
+          <Heading textColor="secondary">XXX</Heading>
+          <Heading textColor="secondary">Open Data</Heading>
+        </Slide>
+
+        <Slide transition={["fade"]}>
+          <Heading textColor="secondary">XXX</Heading>
+          <Heading textColor="secondary">Open Explorer</Heading>
+        </Slide>
+
+        <Slide transition={["fade"]}>
+          <Heading textColor="secondary">XXX</Heading>
+          <Heading textColor="secondary">OONI API</Heading>
+        </Slide>
+
+        <Slide transition={["fade"]}>
+          <Heading textColor="secondary">XXX</Heading>
+          <Heading textColor="secondary">Get Out there and Use our data!</Heading>
         </Slide>
 
         <Slide transition={["fade"]} bgImage={images.FlagOfCuba} bgDarken={0.7} bgSize='120%'>
