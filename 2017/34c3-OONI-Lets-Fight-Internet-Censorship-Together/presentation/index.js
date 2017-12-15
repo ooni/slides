@@ -9,6 +9,7 @@ import { colors } from 'ooni-components'
 import FaApple from 'react-icons/lib/fa/apple'
 import FaAndroid from 'react-icons/lib/fa/android'
 import MdLaptop from 'react-icons/lib/md/laptop'
+import MdChatBubble from 'react-icons/lib/md/chat-bubble'
 
 // Import Spectacle Core tags
 import {
@@ -40,12 +41,27 @@ const images = {
   OONIHorizontalColor: require("ooni-components/components/svgs/logos/OONI-HorizontalColor.svg"),
   OONIVerticalColor: require("ooni-components/components/svgs/logos/OONI-VerticalColor.svg"),
   ProbeVerticalColor: require("ooni-components/components/svgs/logos/Probe-VerticalColor.svg"),
+  PipelineHorizontalMonochrome: require("ooni-components/components/svgs/logos/Pipeline-HorizontalMonochrome.svg"),
+  APIHorizontalMonochrome: require("ooni-components/components/svgs/logos/API-HorizontalMonochrome.svg"),
+  ExplorerHorizontalMonochrome: require("ooni-components/components/svgs/logos/Explorer-HorizontalMonochrome.svg"),
   FlagOfCuba: require("../assets/Flag_of_Cuba.svg"),
   FlagOfEthiopia: require("../assets/Flag_of_Ethiopia.svg"),
   FlagOfIndonesia: require("../assets/Flag_of_Indonesia.svg"),
   FlagOfIran: require("../assets/Flag_of_Iran.svg"),
   FlagOfPakistan: require("../assets/Flag_of_Pakistan.svg"),
-  BlockedDomainsInIran: require("../assets/BlockedDomainsInIran.svg")
+  BlockedDomainsInIran: require("../assets/BlockedDomainsInIran.svg"),
+  MiddleBoxes: require("../assets/MiddleBoxes.svg"),
+  PerformanceBolt: require("../assets/PerformanceBolt.svg"),
+  WebCensorshipCross: require("../assets/WebCensorshipCross.svg"),
+  OnionBlue: require("../assets/Onion_Blue_Icon.svg"),
+  Nexus5: require("../assets/Nexus5.svg"),
+  Nexus5Left: require("../assets/Nexus5Left.svg"),
+  Nexus5Right: require("../assets/Nexus5Right.svg"),
+  MobileAppScreenshot1: require("../assets/MobileAppScreenshot1.jpg"),
+  MobileAppScreenshot2: require("../assets/MobileAppScreenshot2.jpg"),
+  MobileAppScreenshot3: require("../assets/MobileAppScreenshot3.jpg"),
+  MobileAppScreenshot4: require("../assets/MobileAppScreenshot4.jpg"),
+  MobileAppScreenshot5: require("../assets/MobileAppScreenshot5.jpg"),
 };
 
 const GRID_HEIGHT = 400
@@ -203,6 +219,138 @@ const ArrowContainer = styled.div`
   top: ${props => props.top}px;
   left: ${props => props.left}px;
 `
+
+const StyledEmbedPage = styled.div`
+display: flex;
+alignItems: center;
+flex-direction: column;
+top: calc(-50vh + 50%);
+left: calc(-50vw + 50%);
+position: absolute;
+width: 100vw;
+height: 100vh;
+`
+
+const StyledIframe = styled.iframe`
+  height: 100vh;
+  width: 100%;
+  position: absolute;
+  top: 0px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: -100;
+`
+const StyledPageLinkContainer = styled.div`
+  text-align: left;
+  padding-left: 100px;
+  padding-top: 50px;
+`
+
+const StyledPageLink = styled(Link)`
+  position: relative;
+  padding-left: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-right: 30px;
+  background-color: ${colors.palette.white};
+  border: 2px solid ${colors.palette.gray6};
+  border-radius: 10px;
+`
+
+const EmbedPage = ({url}) => {
+  return (
+    <StyledEmbedPage>
+      <StyledPageLinkContainer>
+        <StyledPageLink href={url}>{url}</StyledPageLink>
+      </StyledPageLinkContainer>
+      <StyledIframe frameBorder="0" src={url} />
+    </StyledEmbedPage>
+  )
+}
+
+const NettestType = styled(Fill)`
+  padding-bottom: 20px;
+  h4 {
+    font-size: 2rem;
+    color: ${colors.palette.black}
+  }
+  svg {
+    fill: ${colors.palette.blue5}
+  }
+`
+
+const PhoneContainer = styled(Fill)`
+  position: relative;
+  perspective: 500px;
+  opacity: ${props => props.active ? '1' : '0.7'};
+  transition: opacity 3s;
+`
+
+const Screenshot = styled.div`
+  position: absolute;
+  top: 70px;
+  left: 15px;
+  img {
+    width: 275px;
+    margin: 0;
+  }
+`
+
+const PhoneAndScreenshot = styled.div`
+  ${props => {
+    if (props.active) {
+      return '';
+    }
+    return 'transform: translateZ(-200px);';
+  }};
+  transition: transform 3s;
+`
+
+class PhoneCarousel extends React.Component {
+  constructor() {
+    super()
+    this.state = {
+      activeIdx: 0
+    }
+    this.change = this.change.bind(this)
+  }
+
+  componentDidMount(){
+    this.change()
+    setInterval(this.change, 15000)
+  }
+
+  change() {
+    this.setState({
+      activeIdx: (this.state.activeIdx + 1) % 3
+    })
+  }
+  render() {
+    const {
+      activeIdx
+    } = this.state
+    const {
+      screenshots
+    } = this.props
+
+    return (
+      <Layout>
+        {[0,1,2].map(idx => {
+          return (
+            <PhoneContainer active={idx == activeIdx}>
+              <PhoneAndScreenshot active={idx == activeIdx}>
+                <Screenshot>
+                  <Image src={screenshots[idx]} />
+                </Screenshot>
+                <Image src={images.Nexus5} width="300px" />
+              </PhoneAndScreenshot>
+            </PhoneContainer>
+          )
+        })}
+      </Layout>
+    )
+  }
+}
 
 export default class Presentation extends React.Component {
   render() {
@@ -390,38 +538,76 @@ export default class Presentation extends React.Component {
         </Slide>
 
         <Slide transition={["fade"]}>
-          <Heading textColor="secondary">XXX</Heading>
-          <Heading textColor="secondary">OONI Software tests</Heading>
+          <Heading size={2} textColor="primary">OONI Software tests</Heading>
+          <Layout style={{paddingTop: '40px'}}>
+            <NettestType>
+              <Image src={images.WebCensorshipCross} height="150px" />
+              <Heading size={4}>Web Censorship</Heading>
+            </NettestType>
+
+            <NettestType>
+              <MdChatBubble size="150px" />
+              <Heading size={4}>Instant Messaging Apps</Heading>
+            </NettestType>
+
+            <NettestType>
+              <Image src={images.OnionBlue} height="145px" />
+              <Heading size={4}>Censorship Circumvention</Heading>
+            </NettestType>
+
+          </Layout>
+          <Layout style={{paddingTop: '20px'}}>
+            <NettestType>
+              <Image src={images.MiddleBoxes} height="150px" />
+              <Heading size={4} style={{paddingTop: '20px'}}>Middle Boxes</Heading>
+            </NettestType>
+
+            <NettestType>
+              <Image src={images.PerformanceBolt} height="150px" />
+              <Heading size={4} style={{paddingTop: '20px'}}>Speed & Performance</Heading>
+            </NettestType>
+          </Layout>
+        </Slide>
+
+        <Slide transition={["fade"]} bgColor="secondary">
+          <PhoneCarousel screenshots={[
+            images.MobileAppScreenshot1,
+            images.MobileAppScreenshot2,
+            images.MobileAppScreenshot3
+          ]}/>
+        </Slide>
+
+        <Slide transition={["fade"]} maxHeight="100vh" maxWidth="100vw">
+          <EmbedPage url='http://demo.probe.ooni.io' />
+        </Slide>
+
+        <Slide transition={["fade"]} maxHeight="100vh" maxWidth="100vw">
+          <EmbedPage url='https://run.ooni.io' />
         </Slide>
 
         <Slide transition={["fade"]}>
-          <Heading textColor="secondary">XXX</Heading>
-          <Heading textColor="secondary">OONI Probe Mobile apps</Heading>
+          <Heading textColor="secondary" style={{paddingBottom: '40px'}}>Open Data</Heading>
+          <Layout>
+            <Fill style={{'text-align': 'left', marginRight: '40px'}}>
+              <Image style={{margin: '0'}} src={images.PipelineHorizontalMonochrome} height="100px" />
+              <Image style={{margin: '0'}} src={images.APIHorizontalMonochrome} height="79px" />
+              <Image style={{margin: '0'}} src={images.ExplorerHorizontalMonochrome} height="100px" />
+            </Fill>
+            <Fill>
+              <Text>Provides <b>evidence</b> of censorship events</Text>
+              <Text><b>Transparency</b> of global internet controls</Text>
+              <Text>Allows researchers to conduct <b>independent studies</b> & to explore other research questions</Text>
+              <Text>Allows the public to <b>verify</b> our findings</Text>
+            </Fill>
+          </Layout>
         </Slide>
 
-        <Slide transition={["fade"]}>
-          <Heading textColor="secondary">XXX</Heading>
-          <Heading textColor="secondary">OONI Probe desktop & CLI</Heading>
+        <Slide transition={["fade"]} maxHeight="100vh" maxWidth="100vw">
+          <EmbedPage url='https://explorer.ooni.io' />
         </Slide>
 
-        <Slide transition={["fade"]}>
-          <Heading textColor="secondary">XXX</Heading>
-          <Heading textColor="secondary">OONI Run</Heading>
-        </Slide>
-
-        <Slide transition={["fade"]}>
-          <Heading textColor="secondary">XXX</Heading>
-          <Heading textColor="secondary">Open Data</Heading>
-        </Slide>
-
-        <Slide transition={["fade"]}>
-          <Heading textColor="secondary">XXX</Heading>
-          <Heading textColor="secondary">Open Explorer</Heading>
-        </Slide>
-
-        <Slide transition={["fade"]}>
-          <Heading textColor="secondary">XXX</Heading>
-          <Heading textColor="secondary">OONI API</Heading>
+        <Slide transition={["fade"]} maxHeight="100vh" maxWidth="100vw">
+          <EmbedPage url='https://api.ooni.io' />
         </Slide>
 
         <Slide transition={["fade"]}>
