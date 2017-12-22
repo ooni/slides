@@ -20,7 +20,6 @@
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
     "react-icons": "^2.2.7",
-    "react-player": "^0.25.3",
     "react-svg-inline": "^2.0.1",
     "spectacle": "^4.0.0",
     "spectacle-renderer": "^0.0.3"
