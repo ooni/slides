@@ -37,6 +37,9 @@ module.exports = {
       test: /\.css$/,
       loader: "style-loader!css-loader"
     }, {
+      test: /\.(mp4)$/,
+      loader: "file-loader"
+    }, {
       test: /\.(png|jpg|gif)$/,
       loader: "url-loader?limit=8192"
     }, {

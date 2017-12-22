@@ -11,6 +11,8 @@ import FaAndroid from 'react-icons/lib/fa/android'
 import MdLaptop from 'react-icons/lib/md/laptop'
 import MdChatBubble from 'react-icons/lib/md/chat-bubble'
 
+import ReactPlayer from 'react-player'
+
 // Import Spectacle Core tags
 import {
   Image,
@@ -64,6 +66,9 @@ const images = {
   MobileAppScreenshot5: require("../assets/MobileAppScreenshot5.jpg"),
 };
 
+const videos = {
+  TestVideo: require("../assets/TestVideo.mp4"),
+}
 const GRID_HEIGHT = 400
 const GRID_WIDTH = 300
 const ECOSYSTEM_IMG_W = null
@@ -352,6 +357,67 @@ class PhoneCarousel extends React.Component {
   }
 }
 
+const StyledReactPlayer = styled(ReactPlayer)`
+  height: 100vh;
+  width: 100vw;
+  position: absolute;
+  top: 0px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100;
+`
+
+class ControlledPlayer extends React.Component {
+  constructor() {
+    super()
+    this.state = {
+      playing: false
+    }
+    this.togglePlaying = this.togglePlaying.bind(this)
+    this._handleKeyPress = this._handleKeyPress.bind(this)
+  }
+
+  componentDidMount() {
+    this._attachEvents()
+  }
+
+  _attachEvents() {
+    window.addEventListener('keydown', this._handleKeyPress)
+  }
+
+  _detachEvents() {
+    window.removeEventListener('keydown', this._handleKeyPress)
+  }
+
+  componentWillUnmount() {
+    this._detachEvents()
+  }
+
+  _handleKeyPress(e) {
+    const event = window.event ? window.event : e;
+    if (event.keyCode === 13) { // Enter key
+      this.togglePlaying()
+    }
+  }
+
+  togglePlaying() {
+    this.setState({
+      playing: !this.state.playing
+    })
+  }
+
+  render() {
+    const {
+      playing
+    } = this.state
+    return (
+      <StyledReactPlayer url={[{
+          type: 'video/mp4',
+          src: videos.TestVideo
+        }]} playing={playing} />
+    )
+  }
+}
 export default class Presentation extends React.Component {
   render() {
     return (
@@ -364,7 +430,7 @@ export default class Presentation extends React.Component {
           </Heading>
         </Slide>
         <Slide transition={["fade"]} bgColor="secondary" textColor="quaternary">
-          <Heading size={2} textColor="quarternary">What is</Heading>
+          <Heading size={2} caps textColor="quarternary">What is</Heading>
           <Heading textColor="quarternary">Internet Censorship?</Heading>
         </Slide>
         <Slide transition={["fade"]}>
@@ -432,7 +498,7 @@ export default class Presentation extends React.Component {
         </Slide>
         <Slide transition={["fade"]} bgImage={images.FlagOfIndonesia} bgDarken={0.7} bgSize='120%'>
           <Appear fid="2" order={2}>
-            <CountryReportFinding>Vimeo and Reddit blocked even though the ban was liften more than 2 years ago</CountryReportFinding>
+            <CountryReportFinding>Vimeo and Reddit blocked even though the ban was lifted more than 2 years ago</CountryReportFinding>
           </Appear>
           <Appear fid="3" order={3}>
             <CountryReportFinding>Blocked URLs include LGBT sites, an online translator and sites providing information on AIDS/HIV prevention</CountryReportFinding>
@@ -446,7 +512,7 @@ export default class Presentation extends React.Component {
         </Slide>
         <Slide transition={["fade"]} bgImage={images.FlagOfPakistan} bgDarken={0.7} bgSize='120%'>
           <Appear fid="2" order={2}>
-            <CountryReportFinding>"Smart Filters" selectively blocking access to specific web pages on HTTP.</CountryReportFinding>
+            <CountryReportFinding>"Smart Filters" selectively block access to specific HTTP web pages.</CountryReportFinding>
           </Appear>
           <Appear fid="3" order={3}>
             <CountryReportFinding>Blocked URLs include sites run by ethnic minority groups and expressing religious criticism.</CountryReportFinding>
@@ -611,12 +677,11 @@ export default class Presentation extends React.Component {
         </Slide>
 
         <Slide transition={["fade"]}>
-          <Heading textColor="secondary">XXX</Heading>
           <Heading textColor="secondary">Get Out there and Use our data!</Heading>
         </Slide>
 
         <Slide transition={["fade"]} bgImage={images.FlagOfCuba} bgDarken={0.7} bgSize='120%'>
-          <Heading textColor="quarternary">XXX Insert video from cuba</Heading>
+          <ControlledPlayer />
         </Slide>
 
       </Deck>
