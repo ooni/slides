@@ -62,6 +62,10 @@ const images = {
   MobileAppScreenshot3: require("../assets/MobileAppScreenshot3.jpg"),
   MobileAppScreenshot4: require("../assets/MobileAppScreenshot4.jpg"),
   MobileAppScreenshot5: require("../assets/MobileAppScreenshot5.jpg"),
+  OONIAPIScreenshot: require("../assets/OONIAPI-Screenshot.png"),
+  OONIExplorerScreenshot: require("../assets/OONIExplorer-Screenshot.png"),
+  OONIProbeScreenshot: require("../assets/OONIProbe-Screenshot.png"),
+  OONIRunScreenshot: require("../assets/OONIRun-Screenshot.png"),
 };
 
 const GRID_HEIGHT = 400
@@ -220,26 +224,14 @@ const ArrowContainer = styled.div`
   left: ${props => props.left}px;
 `
 
-const StyledEmbedPage = styled.div`
-display: flex;
-alignItems: center;
-flex-direction: column;
-top: calc(-50vh + 50%);
+const StyledFloatingLink = styled.div`
+bottom: calc(-120vh - 50%);
 left: calc(-50vw + 50%);
 position: absolute;
 width: 100vw;
 height: 100vh;
 `
 
-const StyledIframe = styled.iframe`
-  height: 100vh;
-  width: 100%;
-  position: absolute;
-  top: 0px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: -100;
-`
 const StyledPageLinkContainer = styled.div`
   text-align: left;
   padding-left: 100px;
@@ -255,18 +247,16 @@ const StyledPageLink = styled(Link)`
   background-color: ${colors.palette.white};
   border: 2px solid ${colors.palette.gray6};
   border-radius: 10px;
+  box-shadow: 5px 10px 10px #888888;
 `
 
-const EmbedPage = ({url}) => {
-  return (
-    <StyledEmbedPage>
-      <StyledPageLinkContainer>
-        <StyledPageLink href={url}>{url}</StyledPageLink>
-      </StyledPageLinkContainer>
-      <StyledIframe frameBorder="0" src={url} />
-    </StyledEmbedPage>
-  )
-}
+const FloatingLink = ({url}) => (
+  <StyledFloatingLink>
+    <StyledPageLinkContainer>
+      <StyledPageLink href={url}>{url}</StyledPageLink>
+    </StyledPageLinkContainer>
+  </StyledFloatingLink>
+)
 
 const NettestType = styled(Fill)`
   padding-bottom: 20px;
@@ -351,16 +341,6 @@ class PhoneCarousel extends React.Component {
     )
   }
 }
-
-const StyledReactPlayer = styled(ReactPlayer)`
-  height: 100vh;
-  width: 100vw;
-  position: absolute;
-  top: 0px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 100;
-`
 
 export default class Presentation extends React.Component {
   render() {
@@ -587,12 +567,11 @@ export default class Presentation extends React.Component {
           ]}/>
         </Slide>
 
-        <Slide transition={["fade"]} maxHeight="100vh" maxWidth="100vw">
-          <EmbedPage url='http://demo.probe.ooni.io' />
+        <Slide transition={["fade"]} maxHeight="100vh" maxWidth="100vw" bgImage={images.OONIProbeScreenshot}>
         </Slide>
 
-        <Slide transition={["fade"]} maxHeight="100vh" maxWidth="100vw">
-          <EmbedPage url='https://run.ooni.io' />
+        <Slide transition={["fade"]} maxHeight="100vh" maxWidth="100vw" bgImage={images.OONIRunScreenshot}>
+          <FloatingLink url='https://run.ooni.io' />
         </Slide>
 
         <Slide transition={["fade"]}>
@@ -612,16 +591,16 @@ export default class Presentation extends React.Component {
           </Layout>
         </Slide>
 
-        <Slide transition={["fade"]} maxHeight="100vh" maxWidth="100vw">
-          <EmbedPage url='https://explorer.ooni.io' />
+        <Slide transition={["fade"]} maxHeight="100vh" maxWidth="100vw" bgImage={images.OONIExplorerScreenshot}>
+          <FloatingLink url='https://explorer.ooni.io' />
         </Slide>
 
-        <Slide transition={["fade"]} maxHeight="100vh" maxWidth="100vw">
-          <EmbedPage url='https://api.ooni.io' />
+        <Slide transition={["fade"]} maxHeight="100vh" maxWidth="100vw" bgImage={images.OONIAPIScreenshot}>
+          <FloatingLink url='https://api.ooni.io' />
         </Slide>
 
         <Slide transition={["fade"]}>
-          <Heading textColor="secondary">Get Out there and Use our data!</Heading>
+          <Heading textColor="secondary">Get Out there and Use OONI data!</Heading>
         </Slide>
 
         <Slide transition={["fade"]} bgImage={images.FlagOfCuba} bgDarken={0.7} bgSize='120%'>
