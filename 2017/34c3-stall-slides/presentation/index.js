@@ -370,7 +370,7 @@ const StyledQRCode = ({value, hideText}) => {
 export default class Presentation extends React.Component {
   render() {
     return (
-      <Deck transition={["zoom", "slide"]} transitionDuration={500} theme={theme} autoplay={true} autoplayDuration={1000} controls={false}>
+      <Deck transition={["zoom", "slide"]} transitionDuration={500} theme={theme} autoplay={true} autoplayDuration={15000} controls={false}>
         <Slide transition={["zoom"]}>
           <StyledQRCode hideText value="https://ooni.torproject.org/" />
           <Image width="300px" src={images.OONIVerticalColor} align='right'/>
