@@ -56,6 +56,35 @@ export const theme = {
   fullscreen: {
     fill: colors.primary
   },
+  autoplay: {
+    pause: {
+      position: 'absolute',
+      top: 20,
+      right: '50%',
+      left: '50%',
+      zIndex: 9999,
+      background: 'none',
+      border: 'none',
+      outline: 0,
+    },
+    pauseIcon: {
+      fill: colors.tertiary,
+    },
+    play: {
+      position: 'absolute',
+      top: 20,
+      right: '50%',
+      left: '50%',
+      zIndex: 9999,
+      background: 'none',
+      border: 'none',
+      outline: 0,
+    },
+    playIcon: {
+      fill: colors.tertiary,
+    },
+  },
+
   controls: {
     prev: {
       position: "absolute",
