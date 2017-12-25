@@ -22,7 +22,7 @@
     "react-dom": "^16.0.0",
     "react-icons": "^2.2.7",
     "react-svg-inline": "^2.0.1",
-    "spectacle": "^4.0.0",
+    "spectacle": "^4.0.4",
     "spectacle-renderer": "^0.0.3"
   },
   "devDependencies": {

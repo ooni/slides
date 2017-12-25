@@ -182,7 +182,7 @@ const WorldDotsBg = styled.div`
   position: absolute;
   top: 0;
   left: '50%';
-  transform: translateX(-50%) translateY(-20%);
+  transform: translateX(-50%) translateY(-50%);
 
   z-index: -1;
   opacity: 0.8;
@@ -346,8 +346,8 @@ class PhoneCarousel extends React.Component {
 }
 
 const StyledQRCodeContainer = styled.div`
-  bottom: calc(-50vh + 45%);
-  left: calc(-50vw - 10%);
+  bottom: calc(-50vh + 30%);
+  left: calc(-50vw);
   position: absolute;
   width: 100vw;
   height: 100vh;
@@ -361,7 +361,7 @@ const StyledQRCodeValue = styled.div`
 const StyledQRCode = ({value, hideText}) => {
   return (
     <StyledQRCodeContainer>
-      <QRCode value={value} />
+      <QRCode fgColor={colors.palette.blue5} value={value} />
       {!hideText && <StyledQRCodeValue>{value}</StyledQRCodeValue>}
     </StyledQRCodeContainer>
   )
@@ -370,11 +370,10 @@ const StyledQRCode = ({value, hideText}) => {
 export default class Presentation extends React.Component {
   render() {
     return (
-      <Deck transition={["zoom", "slide"]} transitionDuration={500} theme={theme} autoplay={true} autoplayDuration={15000} controls={false}>
+      <Deck transition={["zoom", "slide"]} transitionDuration={500} theme={theme} autoplay={true} autoplayDuration={1000} controls={false}>
         <Slide transition={["zoom"]}>
           <StyledQRCode hideText value="https://ooni.torproject.org/" />
           <Image width="300px" src={images.OONIVerticalColor} align='right'/>
-          <Heading size={3} textColor="primary">The Open Observatory of Network Interference</Heading>
           <WorldDotsBg>
             <WorldDots primaryColor={colors.palette.blue5} highlightColor={colors.palette.blue9}/>
           </WorldDotsBg>
