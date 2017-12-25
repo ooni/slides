@@ -429,14 +429,18 @@ export default class Presentation extends React.Component {
         </Slide>
 
         <Slide transition={["fade"]} maxHeight="100vh" maxWidth="100vw" bgImage={images.OONIRunScreenshot}>
+
+          <StyledQRCode hideText value="https://run.ooni.io/" />
           <FloatingLink url='https://run.ooni.io' />
         </Slide>
 
         <Slide transition={["fade"]} maxHeight="100vh" maxWidth="100vw" bgImage={images.OONIExplorerScreenshot}>
+          <StyledQRCode hideText value="https://explorer.ooni.io/" />
           <FloatingLink url='https://explorer.ooni.io' />
         </Slide>
 
         <Slide transition={["fade"]} maxHeight="100vh" maxWidth="100vw" bgImage={images.OONIAPIScreenshot}>
+          <StyledQRCode hideText value="https://api.ooni.io/" />
           <FloatingLink url='https://api.ooni.io' />
         </Slide>
 
