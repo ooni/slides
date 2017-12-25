@@ -464,6 +464,17 @@ export default class Presentation extends React.Component {
           <Heading textColor="quarternary">OONI Software Ecosystem</Heading>
         </Slide>
 
+        <Slide>
+# Measurement Kit
+
+- C++14 library that implements all the network measurement tests we support.
+
+- available on Unix and soon on Windows; has JNI bindings.
+
+- https://github.com/measurement-kit/measurement-kit
+
+        </Slide>
+
         <Slide transition={["fade"]}>
           <EcosystemContainer>
           <ArrowContainer top={GRID_HEIGHT - 140} left={100} >
