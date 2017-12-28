@@ -3,7 +3,8 @@ import print from "./print"
 
 const styles = {
   screen,
-  print
+  print,
+  presenter: screen
 }
 
 export default styles

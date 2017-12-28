@@ -27,7 +27,8 @@ import {
   Fit,
   Fill,
   Appear,
-  Link
+  Link,
+  Notes
 } from "spectacle"
 
 
@@ -49,6 +50,7 @@ const images = {
   FlagOfIndonesia: require("../assets/Flag_of_Indonesia.svg"),
   FlagOfIran: require("../assets/Flag_of_Iran.svg"),
   FlagOfPakistan: require("../assets/Flag_of_Pakistan.svg"),
+  FlagOfSpain: require("../assets/Flag_of_Spain.svg"),
   BlockedDomainsInIran: require("../assets/BlockedDomainsInIran.svg"),
   MiddleBoxes: require("../assets/MiddleBoxes.svg"),
   PerformanceBolt: require("../assets/PerformanceBolt.svg"),
@@ -66,6 +68,8 @@ const images = {
   OONIExplorerScreenshot: require("../assets/OONIExplorer-Screenshot.png"),
   OONIProbeScreenshot: require("../assets/OONIProbe-Screenshot.png"),
   OONIRunScreenshot: require("../assets/OONIRun-Screenshot.png"),
+  MKScreenshot: require("../assets/MK-Screenshot.png"),
+  MKLogo: require("../assets/Measurement-Kit.png"),
 };
 
 const GRID_HEIGHT = 400
@@ -145,8 +149,8 @@ require("normalize.css");
 
 const WatermarkImage = styled(Image)`
 position: absolute;
-top: 0;
-right: 0;
+top: -50px;
+left: 0;
 `
 
 const DefinitionTerm = styled(Text)`
@@ -193,6 +197,17 @@ const CountryReportHeading = styled.div`
   padding: 20px;
   margin-top: 20px;
   margin-bottom: 20px;
+`
+
+const CountryReportDate = styled.div`
+  background-color: ${colors.OONI_BLUE};
+  color: ${colors.palette.white};
+  font-size: 2rem;
+  padding: 20px;
+  width: 30%;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  text-align: left;
 `
 
 const CountryReportFinding = styled.div`
@@ -347,7 +362,7 @@ export default class Presentation extends React.Component {
     return (
       <Deck transition={["zoom", "slide"]} transitionDuration={500} theme={theme}>
         <Slide transition={["zoom"]}>
-          <WatermarkImage width="200px" src={images.CCCLogo}/>
+          <WatermarkImage width="300px" src={images.CCCLogo}/>
           <Image style={{paddingBottom: '30px'}} width="600px" src={images.OONIHorizontalColor} />
           <Heading size={2}>
             Lets Fight Internet Censorship Together
@@ -401,7 +416,20 @@ export default class Presentation extends React.Component {
             </div>
           </Appear>
         </Slide>
+
         <Slide transition={["fade"]} bgImage={images.FlagOfEthiopia} bgDarken={0.7} bgSize='120%'>
+
+          <Notes>
+            <h4>Slide notes</h4>
+            <ol>
+            <li>Report published in December 2016 with Amnesty international</li>
+            <li>Mobile blackout in October 2016</li>
+            <li>Protests began on the 12 November 2015 in Ginchi, Oromo region.</li>
+            <li>State of Emergency from 8 October 2016 until August 2017 (10 month long)</li>
+            <li>DPI usage</li>
+            </ol>
+          </Notes>
+
           <Appear fid="2" order={2}>
             <CountryReportFinding>WhatsApp Blocked</CountryReportFinding>
           </Appear>
@@ -414,12 +442,16 @@ export default class Presentation extends React.Component {
             blocked</CountryReportFinding>
           </Appear>
           <Appear fid="1" order={1}>
+            <div>
             <CountryReportHeading>Ethiopia&#39;s wave of political protests</CountryReportHeading>
+            <CountryReportDate>December 2016</CountryReportDate>
+            </div>
           </Appear>
           <Appear fid="4" order={4}>
             <Link href='https://ooni.torproject.org/post/ethiopia-report/'>https://ooni.torproject.org/post/ethiopia-report/</Link>
           </Appear>
         </Slide>
+
         <Slide transition={["fade"]} bgImage={images.FlagOfIndonesia} bgDarken={0.7} bgSize='120%'>
           <Appear fid="2" order={2}>
             <CountryReportFinding>Vimeo and Reddit blocked even though the ban was lifted more than 2 years ago</CountryReportFinding>
@@ -428,13 +460,25 @@ export default class Presentation extends React.Component {
             <CountryReportFinding>Blocked URLs include LGBT sites, an online translator and sites providing information on AIDS/HIV prevention</CountryReportFinding>
           </Appear>
           <Appear fid="1" order={1}>
+            <div>
             <CountryReportHeading>Indonesia</CountryReportHeading>
+            <CountryReportDate>May 2017</CountryReportDate>
+            </div>
           </Appear>
           <Appear fid="4" order={4}>
             <Link href='https://ooni.torproject.org/post/indonesia-internet-censorship/'>https://ooni.torproject.org/post/indonesia-internet-censorship/</Link>
           </Appear>
         </Slide>
+
         <Slide transition={["fade"]} bgImage={images.FlagOfPakistan} bgDarken={0.7} bgSize='120%'>
+          <Notes>
+          <h4></h4>
+          <ol>
+          <li>Over 80,000 websites are blocked on the grounds of morality and obscenity</li>
+          <li>Many blocked sites are related to ”Draw Mohammed Day”</li>
+          </ol>
+          </Notes>
+
           <Appear fid="2" order={2}>
             <CountryReportFinding>"Smart Filters" selectively block access to specific HTTP web pages.</CountryReportFinding>
           </Appear>
@@ -442,21 +486,37 @@ export default class Presentation extends React.Component {
             <CountryReportFinding>Blocked URLs include sites run by ethnic minority groups and expressing religious criticism.</CountryReportFinding>
           </Appear>
           <Appear fid="1" order={1}>
+            <div>
             <CountryReportHeading>Pakistan</CountryReportHeading>
+            <CountryReportDate>October 2017</CountryReportDate>
+            </div>
           </Appear>
           <Appear fid="4" order={4}>
             <Link href='https://ooni.torproject.org/post/pakistan-internet-censorship/'>https://ooni.torproject.org/post/pakistan-internet-censorship/</Link>
           </Appear>
         </Slide>
 
-        <Slide transition={["fade"]} bgImage={images.FlagOfIran} bgDarken={0.7} bgSize='120%'>
-          <Appear fid="1" order={1}>
-            <CountryReportHeading>Iran</CountryReportHeading>
+        <Slide transition={["fade"]} bgImage={images.FlagOfSpain} bgDarken={0.7} bgSize='120%'>
+          <Notes>
+            <h4>Speaker notes</h4>
+            <ol>
+            <li>Confirm the blocking of at least 25 sites related to the Catalan referendum</li>
+            </ol>
+          </Notes>
+          <Appear fid="2" order={2}>
+            <CountryReportFinding>Internet Censorship during Catalonia&#39;s Independence Referendum.</CountryReportFinding>
           </Appear>
-          <Appear fid="1" order={2}>
-            <WhiteImageContainer>
-            <Image height='600px' src={images.BlockedDomainsInIran} />
-            </WhiteImageContainer>
+          <Appear fid="3" order={3}>
+            <CountryReportFinding>The .cat registry was raided and forced to take down many websites.</CountryReportFinding>
+          </Appear>
+          <Appear fid="1" order={1}>
+            <div>
+            <CountryReportHeading>Spain</CountryReportHeading>
+            <CountryReportDate>October 2017</CountryReportDate>
+            </div>
+          </Appear>
+          <Appear fid="4" order={4}>
+            <Link href='https://ooni.torproject.org/post/internet-censorship-catalonia-independence-referendum/'>https://ooni.torproject.org/post/internet-censorship-catalonia-independence-referendum/</Link>
           </Appear>
         </Slide>
 
@@ -491,6 +551,17 @@ export default class Presentation extends React.Component {
             )
           })}
           </EcosystemContainer>
+        </Slide>
+
+        <Slide transition={["fade"]}>
+          <Image src={images.MKLogo} width='160px'/>
+          <Heading size={2} textColor="primary">Measurement Kit</Heading>
+          <List>
+            <ListItem>C++14 library that implements all the network measurement tests we support.</ListItem>
+            <ListItem>Available on Unix and soon on Windows</ListItem>
+            <ListItem>Has JNI and node.js bindings.</ListItem>
+          </List>
+          <FloatingLink url='https://github.com/measurement-kit/measurement-kit' />
         </Slide>
 
         <Slide transition={["fade"]}>
