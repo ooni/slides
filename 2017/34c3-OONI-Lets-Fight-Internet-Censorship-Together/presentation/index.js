@@ -69,7 +69,7 @@ const images = {
   OONIProbeScreenshot: require("../assets/OONIProbe-Screenshot.png"),
   OONIRunScreenshot: require("../assets/OONIRun-Screenshot.png"),
   MKScreenshot: require("../assets/MK-Screenshot.png"),
-  MKLogo: require("../assets/Measurement-Kit.png"),
+  MKLogo: require("../assets/Measurement-Kit.png")
 };
 
 const GRID_HEIGHT = 400
@@ -118,6 +118,11 @@ const ooEcosystem = {
     src: require("ooni-components/components/svgs/logos/Run-VerticalMonochrome.svg"),
     top: 0,
     left: GRID_WIDTH
+  },
+  MeasurementKitMonochrome: {
+    src: require("../assets/Measurement-Kit-BW.png"),
+    top: GRID_HEIGHT,
+    left: GRID_WIDTH,
   },
 
   ExplorerVerticalMonochrome: {
@@ -231,6 +236,7 @@ const EcosystemItem = styled.div`
   position: absolute;
   top: ${props => props.top}px;
   left: ${props => props.left}px;
+  z-index: -100;
 `
 
 const ArrowContainer = styled.div`
@@ -361,32 +367,35 @@ export default class Presentation extends React.Component {
   render() {
     return (
       <Deck transition={["zoom", "slide"]} transitionDuration={500} theme={theme}>
-        <Slide transition={["zoom"]}>
+        <Slide transition={["zoom"]} bgColor="white">
           <WatermarkImage width="300px" src={images.CCCLogo}/>
           <Image style={{paddingBottom: '30px'}} width="600px" src={images.OONIHorizontalColor} />
           <Heading size={2}>
             Lets Fight Internet Censorship Together
           </Heading>
         </Slide>
+
         <Slide transition={["fade"]} bgColor="secondary" textColor="quaternary">
           <Heading size={2} caps textColor="quarternary">What is</Heading>
           <Heading textColor="quarternary">Internet Censorship?</Heading>
         </Slide>
-        <Slide transition={["fade"]}>
+
+        <Slide transition={["fade"]} bgColor="white">
           <DefinitionTerm>Internet Censorship <DefinitionFonetics>|ˈɪntənɛt sɛnsərʃɪp|</DefinitionFonetics></DefinitionTerm>
           <List ordered>
             <DefinitionItem><Definition>a distortion of the reality of the Internet created by those in power.</Definition></DefinitionItem>
             <DefinitionItem><Definition>another term for <span style={{color: colors.OONI_BLUE}}>FILTERNET</span>.</Definition></DefinitionItem>
           </List>
         </Slide>
-        <Slide transition={["zoom"]}>
+        <Slide transition={["zoom"]} bgColor="white">
           <Image width="300px" src={images.OONIVerticalColor} align='right'/>
           <Heading size={3} textColor="primary">The Open Observatory of Network Interference</Heading>
           <WorldDotsBg>
             <WorldDots primaryColor={colors.palette.blue5} highlightColor={colors.palette.blue9}/>
           </WorldDotsBg>
         </Slide>
-        <Slide transition={["fade"]}>
+
+        <Slide transition={["fade"]} bgColor="white">
           <Heading size={2} caps textColor="secondary">
             OONI Is
           </Heading>
@@ -524,24 +533,8 @@ export default class Presentation extends React.Component {
           <Heading textColor="quarternary">OONI Software Ecosystem</Heading>
         </Slide>
 
-        <Slide transition={["fade"]}>
+        <Slide transition={["fade"]} bgColor="white">
           <EcosystemContainer>
-          <ArrowContainer top={GRID_HEIGHT - 140} left={100} >
-            <Arrow dir='left' />
-            <Text textColor="secondary" style={{'position': 'absolute', 'top': '30px'}}>More User facing</Text>
-          </ArrowContainer>
-          <ArrowContainer top={GRID_HEIGHT - 140} left={GRID_WIDTH + 300} >
-            <Arrow dir='right' />
-            <Text textColor="secondary" style={{'position': 'absolute', 'top': '30px'}}>Less User facing</Text>
-          </ArrowContainer>
-          <ArrowContainer top={GRID_HEIGHT} left={GRID_WIDTH + 140} >
-            <Arrow dir='down' />
-            <Text textColor="secondary" style={{'position': 'absolute', 'top': '0px', 'left': '-140px', 'transform': 'rotate(-90deg)'}}>More Developer friendly</Text>
-          </ArrowContainer>
-          <ArrowContainer top={GRID_HEIGHT - 300} left={GRID_WIDTH + 140} >
-            <Arrow dir='up' />
-            <Text textColor="secondary" style={{'position': 'absolute', 'top': '30px', 'left': '40px', 'transform': 'rotate(-90deg)'}}>More User friendly</Text>
-          </ArrowContainer>
           {Object.keys(ooEcosystem).map(key => {
             const item = ooEcosystem[key]
             return (
