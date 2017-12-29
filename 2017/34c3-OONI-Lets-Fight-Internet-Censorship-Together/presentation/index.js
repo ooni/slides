@@ -462,6 +462,16 @@ export default class Presentation extends React.Component {
         </Slide>
 
         <Slide transition={["fade"]} bgImage={images.FlagOfIndonesia} bgDarken={0.7} bgSize='120%'>
+          <Notes>
+          <h4>Notes</h4>
+          <ol>
+          <li>We saw a lot of difference in results from network to network.</li>
+          <li>Vimeo and Reddit were found to be blocked in some networks in Indonesia even though ban was lifted more than 2 years ago</li>
+          <li>Sites expressing criticism towards Islam were found to be blocked</li>
+          <li>Indonesian ISPs are granted the authority to ban “negative content” at their own discretion, regardless of whether such sites are included in the MICT’s official Trust Positif blocklists</li>
+          </ol>
+          </Notes>
+
           <Appear fid="2" order={2}>
             <CountryReportFinding>Vimeo and Reddit blocked even though the ban was lifted more than 2 years ago</CountryReportFinding>
           </Appear>
@@ -483,7 +493,7 @@ export default class Presentation extends React.Component {
 
         <Slide transition={["fade"]} bgImage={images.FlagOfIran} bgDarken={0.7} bgSize='120%'>
           <Notes>
-          <h4></h4>
+          <h4>Notes</h4>
           <ol>
           <li>Thousands of ooniprobe network measurements collected from 60
           local networks across Iran over the last three years have confirmed
@@ -513,7 +523,7 @@ export default class Presentation extends React.Component {
             </ol>
           </Notes>
           <Appear fid="2" order={2}>
-            <CountryReportFinding>At least 25 websites related to the Catalonia&#39;s Independence Referendum were blocked.</CountryReportFinding>
+            <CountryReportFinding>At least 25 websites related to the Catalonia Independence Referendum were blocked.</CountryReportFinding>
           </Appear>
           <Appear fid="3" order={3}>
             <CountryReportFinding>The .cat registry was raided and forced to take down many websites.</CountryReportFinding>
@@ -668,6 +678,11 @@ export default class Presentation extends React.Component {
         </Slide>
 
         <Slide transition={["fade"]} bgImage={images.FlagOfCuba} bgDarken={0.7} bgSize='120%'>
+          <div>
+          <CountryReportHeading>Cuba</CountryReportHeading>
+          <CountryReportDate>Spring 2017</CountryReportDate>
+          </div>
+
         </Slide>
 
       </Deck>
