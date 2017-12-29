@@ -479,30 +479,30 @@ export default class Presentation extends React.Component {
           </Appear>
         </Slide>
 
-        <Slide transition={["fade"]} bgImage={images.FlagOfPakistan} bgDarken={0.7} bgSize='120%'>
+
+
+        <Slide transition={["fade"]} bgImage={images.FlagOfIran} bgDarken={0.7} bgSize='120%'>
           <Notes>
           <h4></h4>
           <ol>
-          <li>Over 80,000 websites are blocked on the grounds of morality and obscenity</li>
-          <li>Many blocked sites are related to ”Draw Mohammed Day”</li>
+          <li>Thousands of ooniprobe network measurements collected from 60
+          local networks across Iran over the last three years have confirmed
+          the blocking of 886 domains (and 1,019 URLs in total)</li>
+          <li>Facebook Messenger was blocked using DNS manipulation</li>
+          <li>One of the most advanced censoring regimes</li>
+          <li>Non deterministic censorship</li>
+          <li>Instagram became entirely blocked when it switched to HTTPS</li>
+          <li>Export laws make website also block acccess FROM Iran</li>
           </ol>
           </Notes>
 
-          <Appear fid="2" order={2}>
-            <CountryReportFinding>"Smart Filters" selectively block access to specific HTTP web pages.</CountryReportFinding>
-          </Appear>
-          <Appear fid="3" order={3}>
-            <CountryReportFinding>Blocked URLs include sites run by ethnic minority groups and expressing religious criticism.</CountryReportFinding>
-          </Appear>
-          <Appear fid="1" order={1}>
-            <div>
-            <CountryReportHeading>Pakistan</CountryReportHeading>
-            <CountryReportDate>October 2017</CountryReportDate>
-            </div>
-          </Appear>
-          <Appear fid="4" order={4}>
-            <Link href='https://ooni.torproject.org/post/pakistan-internet-censorship/'>https://ooni.torproject.org/post/pakistan-internet-censorship/</Link>
-          </Appear>
+          <div>
+            <WhiteImageContainer>
+            <Image height='600px' src={images.BlockedDomainsInIran} />
+            </WhiteImageContainer>
+            <CountryReportDate>September 2017</CountryReportDate>
+            <Link href='https://ooni.torproject.org/post/iran-internet-censorship/'>https://ooni.torproject.org/post/iran-internet-censorship/</Link>
+          </div>
         </Slide>
 
         <Slide transition={["fade"]} bgImage={images.FlagOfSpain} bgDarken={0.7} bgSize='120%'>
@@ -513,7 +513,7 @@ export default class Presentation extends React.Component {
             </ol>
           </Notes>
           <Appear fid="2" order={2}>
-            <CountryReportFinding>Internet Censorship during Catalonia&#39;s Independence Referendum.</CountryReportFinding>
+            <CountryReportFinding>At least 25 websites related to the Catalonia&#39;s Independence Referendum were blocked.</CountryReportFinding>
           </Appear>
           <Appear fid="3" order={3}>
             <CountryReportFinding>The .cat registry was raided and forced to take down many websites.</CountryReportFinding>
@@ -546,18 +546,18 @@ export default class Presentation extends React.Component {
           </EcosystemContainer>
         </Slide>
 
-        <Slide transition={["fade"]}>
+        <Slide transition={["fade"]} bgColor="white">
           <Image src={images.MKLogo} width='160px'/>
           <Heading size={2} textColor="primary">Measurement Kit</Heading>
           <List>
             <ListItem>C++14 library that implements all the network measurement tests we support.</ListItem>
             <ListItem>Available on Unix and soon on Windows</ListItem>
-            <ListItem>Has JNI and node.js bindings.</ListItem>
+            <ListItem>Has JNI and Node.js bindings.</ListItem>
           </List>
           <FloatingLink url='https://github.com/measurement-kit/measurement-kit' />
         </Slide>
 
-        <Slide transition={["fade"]}>
+        <Slide transition={["fade"]} bgColor="white">
           <Layout>
           <Fill>
           <Image src={images.ProbeVerticalColor} width={200}/>
@@ -591,7 +591,7 @@ export default class Presentation extends React.Component {
           </Layout>
         </Slide>
 
-        <Slide transition={["fade"]}>
+        <Slide transition={["fade"]} bgColor="white">
           <Heading size={2} textColor="primary">OONI Software tests</Heading>
           <Layout style={{paddingTop: '40px'}}>
             <NettestType>
@@ -638,7 +638,7 @@ export default class Presentation extends React.Component {
           <FloatingLink url='https://run.ooni.io' />
         </Slide>
 
-        <Slide transition={["fade"]}>
+        <Slide transition={["fade"]} bgColor="white">
           <Heading textColor="secondary" style={{paddingBottom: '40px'}}>Open Data</Heading>
           <Layout>
             <Fill style={{'text-align': 'left', marginRight: '40px'}}>
@@ -663,7 +663,7 @@ export default class Presentation extends React.Component {
           <FloatingLink url='https://api.ooni.io' />
         </Slide>
 
-        <Slide transition={["fade"]}>
+        <Slide transition={["fade"]} bgColor="white">
           <Heading textColor="secondary">Get Out there and Use OONI data!</Heading>
         </Slide>
 
