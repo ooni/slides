@@ -43,6 +43,7 @@ import theme from "../themes/ooni/index.js";
 import WorldDots from './WorldDots'
 
 const images = {
+  SourceLuke: require("../assets/source-luke.jpg"),
   OONIHorizontalColor: require("ooni-components/components/svgs/logos/OONI-HorizontalColor.svg"),
   OONIVerticalColor: require("ooni-components/components/svgs/logos/OONI-VerticalColor.svg"),
   ProbeVerticalColor: require("ooni-components/components/svgs/logos/Probe-VerticalColor.svg"),
@@ -71,7 +72,6 @@ const images = {
   OONIAPIScreenshot: require("../assets/OONIAPI-Screenshot.png"),
   OONIExplorerScreenshot: require("../assets/OONIExplorer-Screenshot.png"),
   OONIProbeScreenshot: require("../assets/OONIProbe-Screenshot.png"),
-  OONIRunScreenshot: require("../assets/OONIRun-Screenshot.png"),
   MKScreenshot: require("../assets/MK-Screenshot.png"),
   MKLogo: require("../assets/Measurement-Kit.png")
 };
@@ -644,10 +644,6 @@ export default class Presentation extends React.Component {
         <Slide transition={["fade"]} maxHeight="100vh" maxWidth="100vw" bgImage={images.OONIProbeScreenshot}>
         </Slide>
 
-        <Slide transition={["fade"]} maxHeight="100vh" maxWidth="100vw" bgImage={images.OONIRunScreenshot}>
-          <FloatingLink url='https://run.ooni.io' />
-        </Slide>
-
         <Slide transition={["fade"]} bgColor="white">
           <Heading textColor="secondary" style={{paddingBottom: '40px'}}>Open Data</Heading>
           <Layout>
@@ -699,6 +695,10 @@ export default class Presentation extends React.Component {
           <Text textColor="white">https://aws.amazon.com/cli/</Text>
         </Slide>
 
+        <Slide transition={["fade"]} bgColor="secondary">
+          <Image src={images.SourceLuke} />
+        </Slide>
+
         <CodeSlide
             bgColor="#ccc"
             textSize="20px"
@@ -718,6 +718,15 @@ export default class Presentation extends React.Component {
               { loc: [560, 562], title: "" },
               { loc: [578, 587], title: "" }
             ]}/>
+
+          <Slide transition={["fade"]} bgColor="white">
+          <Heading>Learn More</Heading>
+          <List>
+          <ListItem><Link>https://ooni.torproject.org/</Link></ListItem>
+          <ListItem><Link>https://api.ooni.io/docs</Link></ListItem>
+          <ListItem><Link>https://api.ooni.io/docs</Link></ListItem>
+          </List>
+          </Slide>
 
       </Deck>
     );
