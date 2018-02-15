@@ -368,25 +368,27 @@ export default class Presentation extends React.Component {
         <Slide transition={["zoom"]} bgColor="white">
           <Image style={{paddingBottom: '30px'}} width="600px" src={images.OONIHorizontalColor} />
           <Heading size={2}>
-          Internet Censorship Measurement
+          Internet Censorship Measurements
           </Heading>
           <Heading size={6}>
-          University of Cape Town, 16th of February 2018
+          University of Cape Town, 16th February 2018
           </Heading>
         </Slide>
 
         <Slide transition={["fade"]} bgColor="secondary" textColor="quaternary">
-          <Heading size={2} caps textColor="quarternary">What is</Heading>
-          <Heading textColor="quarternary">Internet Censorship?</Heading>
+          <Heading size={2} caps textColor="quarternary">Why measure Internet Censorship?</Heading>
         </Slide>
 
         <Slide transition={["fade"]} bgColor="white">
-          <DefinitionTerm>Internet Censorship <DefinitionFonetics>|ˈɪntənɛt sɛnsərʃɪp|</DefinitionFonetics></DefinitionTerm>
-          <List ordered>
-            <DefinitionItem><Definition>a distortion of the reality of the Internet created by those in power.</Definition></DefinitionItem>
-            <DefinitionItem><Definition>another term for <span style={{color: colors.OONI_BLUE}}>FILTERNET</span>.</Definition></DefinitionItem>
-          </List>
+          <ul>
+            <li>It’s harder to notice the blocking of less popular sites and services.</li>
+            <li>Internet censorship often differs from network to network within a country.</li>
+            <li>Most censorship techniques are quite subtle.</li>
+            <li>Cases of over-blocking, collateral damage, and censorship leakages.</li>
+            <li>The fact that a site or service is inaccessible doesn’t necessarily mean that it’s blocked by your ISP.</li>
+          </ul>
         </Slide>
+
         <Slide transition={["zoom"]} bgColor="white">
           <Image width="300px" src={images.OONIVerticalColor} align='right'/>
           <Heading size={3} textColor="primary">The Open Observatory of Network Interference</Heading>
@@ -461,36 +463,6 @@ export default class Presentation extends React.Component {
           </Appear>
         </Slide>
 
-        <Slide transition={["fade"]} bgImage={images.FlagOfIndonesia} bgDarken={0.7} bgSize='120%'>
-          <Notes>
-          <h4>Notes</h4>
-          <ol>
-          <li>We saw a lot of difference in results from network to network.</li>
-          <li>Vimeo and Reddit were found to be blocked in some networks in Indonesia even though ban was lifted more than 2 years ago</li>
-          <li>Sites expressing criticism towards Islam were found to be blocked</li>
-          <li>Indonesian ISPs are granted the authority to ban “negative content” at their own discretion, regardless of whether such sites are included in the MICT’s official Trust Positif blocklists</li>
-          </ol>
-          </Notes>
-
-          <Appear fid="2" order={2}>
-            <CountryReportFinding>Vimeo and Reddit blocked even though the ban was lifted more than 2 years ago</CountryReportFinding>
-          </Appear>
-          <Appear fid="3" order={3}>
-            <CountryReportFinding>Blocked URLs include LGBT sites, an online translator and sites providing information on AIDS/HIV prevention</CountryReportFinding>
-          </Appear>
-          <Appear fid="1" order={1}>
-            <div>
-            <CountryReportHeading>Indonesia</CountryReportHeading>
-            <CountryReportDate>May 2017</CountryReportDate>
-            </div>
-          </Appear>
-          <Appear fid="4" order={4}>
-            <Link href='https://ooni.torproject.org/post/indonesia-internet-censorship/'>https://ooni.torproject.org/post/indonesia-internet-censorship/</Link>
-          </Appear>
-        </Slide>
-
-
-
         <Slide transition={["fade"]} bgImage={images.FlagOfIran} bgDarken={0.7} bgSize='120%'>
           <Notes>
           <h4>Notes</h4>
@@ -557,17 +529,6 @@ export default class Presentation extends React.Component {
         </Slide>
 
         <Slide transition={["fade"]} bgColor="white">
-          <Image src={images.MKLogo} width='160px'/>
-          <Heading size={2} textColor="primary">Measurement Kit</Heading>
-          <List>
-            <ListItem>C++14 library that implements all the network measurement tests we support.</ListItem>
-            <ListItem>Available on Unix and soon on Windows</ListItem>
-            <ListItem>Has JNI and Node.js bindings.</ListItem>
-          </List>
-          <FloatingLink url='https://github.com/measurement-kit/measurement-kit' />
-        </Slide>
-
-        <Slide transition={["fade"]} bgColor="white">
           <Layout>
           <Fill>
           <Image src={images.ProbeVerticalColor} width={200}/>
@@ -623,7 +584,7 @@ export default class Presentation extends React.Component {
           <Layout style={{paddingTop: '20px'}}>
             <NettestType>
               <Image src={images.MiddleBoxes} height="150px" />
-              <Heading size={4} style={{paddingTop: '20px'}}>Middle Boxes</Heading>
+              <Heading size={4} style={{paddingTop: '20px'}}>Middleboxes</Heading>
             </NettestType>
 
             <NettestType>
@@ -654,7 +615,6 @@ export default class Presentation extends React.Component {
             </Fill>
             <Fill>
               <Text>Provides <b>evidence</b> of censorship events</Text>
-              <Text><b>Transparency</b> of global internet controls</Text>
               <Text>Allows researchers to conduct <b>independent studies</b> & to explore other research questions</Text>
               <Text>Allows the public to <b>verify</b> our findings</Text>
             </Fill>
