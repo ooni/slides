@@ -1,4 +1,4 @@
-DIRS := $(filter-out node_modules/yarn, $(wildcard */*))
+DIRS := $(filter-out public/%, $(filter-out node_modules/%, $(wildcard */*)))
 
 clean:
 	rm -rf public
@@ -7,6 +7,7 @@ clean:
 all: clean $(DIRS)
 
 $(DIRS):
+	@echo $(DIRS)
 	@echo $@
 	./build.sh $@
 
