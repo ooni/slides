@@ -1,4 +1,4 @@
 [build]
   publish = "dist"
-  command = "make all"
+  command = "make -j4 all"
 
