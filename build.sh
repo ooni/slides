@@ -8,6 +8,7 @@ DST_DIR=$ROOT/public/$SRC_DIR
 echo "==> Building $SRC_DIR to $DST_DIR"
 cd $SRC_DIR
 
+export PUBLIC_PATH_PREFIX=/$SRC_DIR
 yarn install
 yarn run build
 

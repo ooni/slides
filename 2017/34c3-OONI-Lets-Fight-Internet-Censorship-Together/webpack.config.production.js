@@ -3,6 +3,8 @@
 var path = require("path");
 var webpack = require("webpack");
 
+var publicPathPrefix = process.env.PUBLIC_PATH_PREFIX || ''
+
 module.exports = {
   entry: [
     "babel-polyfill",
@@ -11,7 +13,7 @@ module.exports = {
   output: {
     path: path.join(__dirname, "dist"),
     filename: "bundle.js",
-    publicPath: "/dist/"
+    publicPath: publicPathPrefix + "/dist/"
   },
   plugins: [
     new webpack.DefinePlugin({
