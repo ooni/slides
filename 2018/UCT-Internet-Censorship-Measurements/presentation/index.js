@@ -376,10 +376,17 @@ export default class Presentation extends React.Component {
         </Slide>
 
         <Slide transition={["fade"]} bgColor="secondary" textColor="quaternary">
+          <Notes>
+          Maria
+          </Notes>
           <Heading size={2} caps textColor="quarternary">Why measure Internet Censorship?</Heading>
         </Slide>
 
         <Slide transition={["fade"]} bgColor="white">
+          <Notes>
+          Maria
+          </Notes>
+
           <ul>
             <li>It’s harder to notice the blocking of less popular sites and services.</li>
             <li>Internet censorship often differs from network to network within a country.</li>
@@ -390,6 +397,10 @@ export default class Presentation extends React.Component {
         </Slide>
 
         <Slide transition={["zoom"]} bgColor="white">
+          <Notes>
+          Maria
+          </Notes>
+
           <Image width="300px" src={images.OONIVerticalColor} align='right'/>
           <Heading size={3} textColor="primary">The Open Observatory of Network Interference</Heading>
           <WorldDotsBg>
@@ -398,6 +409,10 @@ export default class Presentation extends React.Component {
         </Slide>
 
         <Slide transition={["fade"]} bgColor="white">
+          <Notes>
+          Arturo
+          </Notes>
+
           <Heading size={2} caps textColor="secondary">
             OONI Is
           </Heading>
@@ -431,6 +446,7 @@ export default class Presentation extends React.Component {
         <Slide transition={["fade"]} bgImage={images.FlagOfEthiopia} bgDarken={0.7} bgSize='120%'>
 
           <Notes>
+            Maria
             <h4>Slide notes</h4>
             <ol>
             <li>Report published in December 2016 with Amnesty international</li>
@@ -465,6 +481,7 @@ export default class Presentation extends React.Component {
 
         <Slide transition={["fade"]} bgImage={images.FlagOfIran} bgDarken={0.7} bgSize='120%'>
           <Notes>
+          Maria
           <h4>Notes</h4>
           <ol>
           <li>Thousands of ooniprobe network measurements collected from 60
@@ -489,6 +506,7 @@ export default class Presentation extends React.Component {
 
         <Slide transition={["fade"]} bgImage={images.FlagOfSpain} bgDarken={0.7} bgSize='120%'>
           <Notes>
+            Maria
             <h4>Speaker notes</h4>
             <ol>
             <li>Confirm the blocking of at least 25 sites related to the Catalan referendum</li>
@@ -512,10 +530,16 @@ export default class Presentation extends React.Component {
         </Slide>
 
         <Slide transition={["fade"]} bgColor="secondary">
+          <Notes>
+          Arturo
+          </Notes>
           <Heading textColor="quarternary">OONI Software Ecosystem</Heading>
         </Slide>
 
         <Slide transition={["fade"]} bgColor="white">
+          <Notes>
+          Arturo
+          </Notes>
           <EcosystemContainer>
           {Object.keys(ooEcosystem).map(key => {
             const item = ooEcosystem[key]
@@ -529,6 +553,44 @@ export default class Presentation extends React.Component {
         </Slide>
 
         <Slide transition={["fade"]} bgColor="white">
+          <Notes>
+          Arturo
+          </Notes>
+          <Heading size={2} textColor="primary">OONI Software tests</Heading>
+          <Layout style={{paddingTop: '40px'}}>
+            <NettestType>
+              <Image src={images.WebCensorshipCross} height="150px" />
+              <Heading size={4}>Web Censorship</Heading>
+            </NettestType>
+
+            <NettestType>
+              <MdChatBubble size="150px" />
+              <Heading size={4}>Instant Messaging Apps</Heading>
+            </NettestType>
+
+            <NettestType>
+              <Image src={images.OnionBlue} height="145px" />
+              <Heading size={4}>Censorship Circumvention</Heading>
+            </NettestType>
+
+          </Layout>
+          <Layout style={{paddingTop: '20px'}}>
+            <NettestType>
+              <Image src={images.MiddleBoxes} height="150px" />
+              <Heading size={4} style={{paddingTop: '20px'}}>Middleboxes</Heading>
+            </NettestType>
+
+            <NettestType>
+              <Image src={images.PerformanceBolt} height="150px" />
+              <Heading size={4} style={{paddingTop: '20px'}}>Speed & Performance</Heading>
+            </NettestType>
+          </Layout>
+        </Slide>
+
+        <Slide transition={["fade"]} bgColor="white">
+          <Notes>
+          Maria
+          </Notes>
           <Layout>
           <Fill>
           <Image src={images.ProbeVerticalColor} width={200}/>
@@ -562,39 +624,11 @@ export default class Presentation extends React.Component {
           </Layout>
         </Slide>
 
-        <Slide transition={["fade"]} bgColor="white">
-          <Heading size={2} textColor="primary">OONI Software tests</Heading>
-          <Layout style={{paddingTop: '40px'}}>
-            <NettestType>
-              <Image src={images.WebCensorshipCross} height="150px" />
-              <Heading size={4}>Web Censorship</Heading>
-            </NettestType>
-
-            <NettestType>
-              <MdChatBubble size="150px" />
-              <Heading size={4}>Instant Messaging Apps</Heading>
-            </NettestType>
-
-            <NettestType>
-              <Image src={images.OnionBlue} height="145px" />
-              <Heading size={4}>Censorship Circumvention</Heading>
-            </NettestType>
-
-          </Layout>
-          <Layout style={{paddingTop: '20px'}}>
-            <NettestType>
-              <Image src={images.MiddleBoxes} height="150px" />
-              <Heading size={4} style={{paddingTop: '20px'}}>Middleboxes</Heading>
-            </NettestType>
-
-            <NettestType>
-              <Image src={images.PerformanceBolt} height="150px" />
-              <Heading size={4} style={{paddingTop: '20px'}}>Speed & Performance</Heading>
-            </NettestType>
-          </Layout>
-        </Slide>
 
         <Slide transition={["fade"]} bgColor="secondary">
+          <Notes>
+          Maria
+          </Notes>
           <PhoneCarousel screenshots={[
             images.MobileAppScreenshot1,
             images.MobileAppScreenshot2,
@@ -603,9 +637,15 @@ export default class Presentation extends React.Component {
         </Slide>
 
         <Slide transition={["fade"]} maxHeight="100vh" maxWidth="100vw" bgImage={images.OONIProbeScreenshot}>
+          <Notes>
+          Maria
+          </Notes>
         </Slide>
 
         <Slide transition={["fade"]} bgColor="white">
+          <Notes>
+          Arturo
+          </Notes>
           <Heading textColor="secondary" style={{paddingBottom: '40px'}}>Open Data</Heading>
           <Layout>
             <Fill style={{'text-align': 'left', marginRight: '40px'}}>
@@ -622,14 +662,23 @@ export default class Presentation extends React.Component {
         </Slide>
 
         <Slide transition={["fade"]} maxHeight="100vh" maxWidth="100vw" bgImage={images.OONIExplorerScreenshot}>
+          <Notes>
+          Arturo
+          </Notes>
           <FloatingLink url='https://explorer.ooni.io' />
         </Slide>
 
         <Slide transition={["fade"]} maxHeight="100vh" maxWidth="100vw" bgImage={images.OONIAPIScreenshot}>
+          <Notes>
+          Arturo
+          </Notes>
           <FloatingLink url='https://api.ooni.io' />
         </Slide>
 
         <Slide transition={["fade"]} bgColor="white">
+          <Notes>
+          Arturo
+          </Notes>
           <Heading size={1} textColor="secondary">Mining OONI data</Heading>
           <Text textColor="primary">https://ooni.torproject.org/post/mining-ooni-data/</Text>
         </Slide>
