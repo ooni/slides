@@ -1,4 +1,4 @@
 [build]
-  publish = "."
+  publish = "dist"
   command = "make all"
 
