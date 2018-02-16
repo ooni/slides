@@ -738,6 +738,7 @@ export default class Presentation extends React.Component {
           <ListItem><Link>https://ooni.torproject.org/</Link></ListItem>
           <ListItem><Link>https://api.ooni.io/</Link></ListItem>
           <ListItem><Link>https://explorer.ooni.io/</Link></ListItem>
+          <ListItem><Link>../assets/code/mining-ooni-data.py</Link></ListItem>
 
           <Heading size={4}>Contacts</Heading>
           <ListItem><Link>https://slack.openobservatory.org/</Link></ListItem>
