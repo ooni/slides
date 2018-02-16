@@ -78,7 +78,7 @@ const images = {
   MKLogo: require("../assets/Measurement-Kit.png")
 };
 
-preloader(images)
+preload(images)
 
 const GRID_HEIGHT = 400
 const GRID_WIDTH = 300
