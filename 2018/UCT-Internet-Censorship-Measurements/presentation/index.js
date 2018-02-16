@@ -34,6 +34,8 @@ import {
   Notes
 } from "spectacle"
 
+import preload from "spectacle/lib/utils/preloader"
+
 import Terminal from "spectacle-terminal"
 import CodeSlide from 'spectacle-code-slide'
 
@@ -75,6 +77,8 @@ const images = {
   MKScreenshot: require("../assets/MK-Screenshot.png"),
   MKLogo: require("../assets/Measurement-Kit.png")
 };
+
+preloader(images)
 
 const GRID_HEIGHT = 400
 const GRID_WIDTH = 300
