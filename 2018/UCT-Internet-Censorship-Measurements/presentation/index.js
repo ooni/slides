@@ -683,8 +683,12 @@ export default class Presentation extends React.Component {
           <Heading>Learn More</Heading>
           <List>
           <ListItem><Link>https://ooni.torproject.org/</Link></ListItem>
-          <ListItem><Link>https://api.ooni.io/docs</Link></ListItem>
-          <ListItem><Link>https://api.ooni.io/docs</Link></ListItem>
+          <ListItem><Link>https://api.ooni.io/</Link></ListItem>
+          <ListItem><Link>https://explorer.ooni.io/</Link></ListItem>
+
+          <Heading size={4}>Contacts</Heading>
+          <ListItem><Link>https://slack.openobservatory.org/</Link></ListItem>
+          <ListItem><Link>contact@openobservatory.org</Link></ListItem>
           </List>
           </Slide>
 
