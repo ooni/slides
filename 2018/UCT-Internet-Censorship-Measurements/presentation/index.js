@@ -735,10 +735,10 @@ export default class Presentation extends React.Component {
           <Slide transition={["fade"]} bgColor="white">
           <Heading>Learn More</Heading>
           <List>
-          <ListItem><Link>https://ooni.torproject.org/</Link></ListItem>
-          <ListItem><Link>https://api.ooni.io/</Link></ListItem>
-          <ListItem><Link>https://explorer.ooni.io/</Link></ListItem>
-          <ListItem><Link>../assets/code/mining-ooni-data.py</Link></ListItem>
+          <ListItem><Link href="https://ooni.torproject.org/">https://ooni.torproject.org/</Link></ListItem>
+          <ListItem><Link href="https://api.ooni.io/">https://api.ooni.io/</Link></ListItem>
+          <ListItem><Link href="https://explorer.ooni.io/">https://explorer.ooni.io/</Link></ListItem>
+          <ListItem><Link href="https://gist.github.com/hellais/c520929b9ed6120587860efcf069e44d">Code Example</Link></ListItem>
 
           <Heading size={4}>Contacts</Heading>
           <ListItem><Link>https://slack.openobservatory.org/</Link></ListItem>
