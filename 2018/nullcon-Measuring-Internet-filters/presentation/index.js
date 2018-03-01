@@ -370,6 +370,13 @@ export default class Presentation extends React.Component {
     return (
       <Deck transition={["zoom", "slide"]} transitionDuration={500} theme={theme}>
         <Slide transition={["zoom"]} bgColor="white">
+          <Notes>
+            <p>I'm Leonid, developer and data miner in OONI, The Tor Project.</p>
+            <p>And I'm going to talk a bit about out project measuring Internet
+            filters worldwide and, sometimes, discovering some funny incidents
+            that may be to some extent considered nation-wide cybersecurity
+            threats.</p>
+          </Notes>
           <Image style={{paddingBottom: '30px'}} width="600px" src={images.OONIHorizontalColor} />
           <Heading size={2}>
           Measuring Internet filters
@@ -386,11 +393,36 @@ export default class Presentation extends React.Component {
         </Slide>
 
         <Slide transition={["fade"]} bgColor="secondary" textColor="quaternary">
+          <Notes>
+            There are lots of &quot;Internet filters&quot; out there:
+            <ul>
+            <li>parental control (that is mandatory in some countries)</li>
+            <li>public-space internet filters for city-wide WiFi and libraries</li>
+            <li>children protection for schools and, sometimes, universities</li>
+            <li>corporate proxies and DLP systems enforcing some policy</li>
+            </ul>
+            These are not the filters that we are looking for.
+          </Notes>
           <Heading size={2} caps textColor="quarternary">What is</Heading>
           <Heading textColor="quarternary">Internet Censorship?</Heading>
         </Slide>
 
         <Slide transition={["fade"]} bgColor="white">
+          <Notes>
+            <p>We aim to measure state-wide Internet filters that turn <em>Internet</em> into <em>Filternet</em>.</p>
+            <p>There are many declared reasons to build state-wide Filternet:</p>
+            <ul>
+            <li>copyright infringement protection</li>
+            <li>drug trading prevention</li>
+            <li>hatespeech blocking</li>
+            <li>disrupting communications for violent (or non-violent) protesters</li>
+            <li>court ruling enforcement</li>
+            <li>protecting children from learning about sex and all that adult stuff</li>
+            <li>protecting private life of people from journalists researching on them as part of The Right To Be Forgotten</li>
+            </ul>
+            <p>That may be considered censorship as it basically limits speech.</p>
+            <p>Or may be not as the policy is enforced post-factum and there is no need to get an "approval" to post stuff in the Internet.</p>
+          </Notes>
           <DefinitionTerm>Internet Censorship <DefinitionFonetics>|ˈɪntənɛt sɛnsərʃɪp|</DefinitionFonetics></DefinitionTerm>
           <List ordered>
             <DefinitionItem><Definition>a distortion of the reality of the Internet created by those in power.</Definition></DefinitionItem>
@@ -399,6 +431,21 @@ export default class Presentation extends React.Component {
         </Slide>
 
         <Slide transition={["zoom"]} bgColor="white">
+          <Notes>
+            <p>That's the matter OONI, The Open Observatory of Network Interference, tries to capture, measure and understand.</p>
+
+            <p>OONI is a non-profit under The Tor Project umbrella.</p>
+
+            <p>As I say the word Tor, I'd like to highlight the fact that despite
+            close relationships with this NGO that build The Onion Router and
+            helps volunteers to maintain the Tor network providing anonymity
+            to millions of users, despite all of that OONI is quite different
+            project.</p>
+
+            <p>It's devoted to active measurements from the edge of the Internet
+            and is much closer in it's goals and methods to RIPE Atlas network
+            than to Tor network.</p>
+          </Notes>
           <Image width="300px" src={images.OONIVerticalColor} align='right'/>
           <Heading size={3} textColor="primary">The Open Observatory of Network Interference</Heading>
           <WorldDotsBg>
@@ -407,6 +454,15 @@ export default class Presentation extends React.Component {
         </Slide>
 
         <Slide transition={["fade"]} bgColor="white">
+          <Notes>
+            <p>OONI as a project openly documents it's methodologies trying to
+            understand what websites to test for. Unfortunately, most of
+            countries are not transparent in terms of blocking, they do not
+            publish the blacklists.</p>
+            <p>OONI develops methodologies trying to distinguish temporary network failures from actual filtering.</p>
+            <p>OONI implements those methodologies as open source software.</p>
+            <p>And that software collects network measurements data. Open data that is available for anyone to do further research.</p>
+          </Notes>
           <Heading size={2} caps textColor="secondary">
             OONI Is
           </Heading>
@@ -429,17 +485,16 @@ export default class Presentation extends React.Component {
 
         <Slide transition={["fade"]} bgImage={images.FlagOfIran} bgDarken={0.7} bgSize='120%'>
           <Notes>
-          <h4>Notes</h4>
-          <ol>
-          <li>Thousands of ooniprobe network measurements collected from 60
+          <p>What sort of research is possible? Islamic Republic of Iran is often
+          mentioned as one of examples as soon as someone says &quot;Internet
+          censorship&quot;.</p>
+
+          <p>Indeed, thousands of network measurements collected by OONI Probe from 60
           local networks across Iran over the last three years have confirmed
-          the blocking of 886 domains (and 1,019 URLs in total)</li>
-          <li>Facebook Messenger was blocked using DNS manipulation</li>
-          <li>One of the most advanced censoring regimes</li>
-          <li>Non deterministic censorship</li>
-          <li>Instagram became entirely blocked when it switched to HTTPS</li>
-          <li>Export laws make website also block acccess FROM Iran</li>
-          </ol>
+          the blocking of ~1000 URLs, including Facebook Messenger, Instagram and such.</p>
+
+          <p>There are other reasons to observe Filternet from that vantage point.<br/>
+          For example, export laws make website block acccess FROM Iran.</p>
           </Notes>
 
           <div>
@@ -453,12 +508,13 @@ export default class Presentation extends React.Component {
 
         <Slide transition={["fade"]} bgImage={images.FlagOfSpain} bgDarken={0.7} bgSize='120%'>
           <Notes>
-            Maria
-            <h4>Speaker notes</h4>
-            <ol>
-            <li>Confirm the blocking of at least 25 sites related to the Catalan referendum</li>
-            <li>TLD issues happend, `.io`, `.sk`</li>
-            </ol>
+            <p>But mentioning country names like Iran and China in every discussion on Internet censorship is kinda boring.</p>
+
+            <p>Another recent example comes from Europe. And it's not about The
+            Pirate Bay, it's about Catalonia and it's referendum on
+            independence from Spain.</p>
+
+            <p>OONI measurements confirmed the blocking of at least 25 sites related to the Catalan referendum</p>
           </Notes>
             <CountryReportFinding>At least 25 websites related to the Catalonia Independence Referendum were blocked.</CountryReportFinding>
             <CountryReportFinding>The .cat registry was raided and forced to take down many websites.</CountryReportFinding>
@@ -471,8 +527,17 @@ export default class Presentation extends React.Component {
 
         <Slide transition={["fade"]} bgImage={images.FlagOfBrazil} bgDarken={0.7} bgSize='120%'>
           <Notes>
-          </Notes>
+            <p>And sometimes it's even more strange. Sometimes the case looks like a censorship, feels like a censorship, and quacks like a censorship.</p>
 
+            <p>Just imagine a news portal that is related to one of the oldest
+            newspapers in Brazil. Imagine that media being unreachable from
+            lots of networks across Brazil and browsers showing DNS
+            failures.</p>
+
+            <p>But that case also looked like DNS delegation misconfiguration
+            that caused the domain to be unresolvable for users of Internet
+            Service Providers running bind nameserver as their recursive resolver.</p>
+          </Notes>
           <div>
             <WhiteImageContainer>
             <Image height='600px' src={images.NotQuiteBlockingInBrazil} />
@@ -482,8 +547,15 @@ export default class Presentation extends React.Component {
           </div>
         </Slide>
 
-
         <Slide transition={["fade"]} bgImage={images.Wikileaks} bgDarken={0.7} bgSize='100%'>
+          <Notes>
+          <p>But, you know, being a representative both of United States-based
+          NGO and a person who can be called <em>Russian Hacker</em>, I don't
+          want to talk on political stuff as any opinion I express may be seen
+          as biased opinion.</p>
+          <p>I'd rather describe technical part of OONI project and some
+          interesting incidents I've seen in this area.</p>
+          </Notes>
           <div>
             <WhiteImageContainer>
             <Image height='600px' src={images.WikileaksTweet} />
@@ -493,15 +565,18 @@ export default class Presentation extends React.Component {
         </Slide>
 
         <Slide transition={["fade"]} bgColor="secondary">
-          <Notes>
-          Arturo
-          </Notes>
           <Heading textColor="quarternary">OONI Software Ecosystem</Heading>
         </Slide>
 
         <Slide transition={["fade"]} bgColor="white">
           <Notes>
-          Arturo
+          OONI ecosystem consists of several layers.
+          <ul>
+          <li>That's Measurement Kit, the C++ library implementing cross-platform code for measurements.</li>
+          <li>That's OONI Probe, the app for desktops, servers and mobiles running active measurements from the network edge.</li>
+          <li>That's OONI Pipeline that ingests the data, processes it and makes it available via OONI API and OONI Explorer.</li>
+          <li>That's OONI Protheus and OONI Run, systems that order OONI Probe to run some specific measurements.</li>
+          </ul>
           </Notes>
           <EcosystemContainer>
           {Object.keys(ooEcosystem).map(key => {
@@ -517,7 +592,12 @@ export default class Presentation extends React.Component {
 
         <Slide transition={["fade"]} bgColor="white">
           <Notes>
-          Arturo
+          <p>OONI implements variety of measurements including tests for website
+          reachability, ability of Instant Messaging Apps and Censorship
+          Circumvention tools like Tor to function.</p>
+          <p>OONI Probe also tries to capture network performance data and
+          understand middlebox existence exploring network reaction to various
+          protocols.</p>
           </Notes>
           <Heading size={2} textColor="primary">OONI Software tests</Heading>
           <Layout style={{paddingTop: '40px'}}>
@@ -552,7 +632,9 @@ export default class Presentation extends React.Component {
 
         <Slide transition={["fade"]} bgColor="white">
           <Notes>
-          Maria
+          <p>The app is currently available for most of popular platforms: Linux, MacOSX, Android and iOS devices.
+          So, it's available almost everywhere besides, probably, the most popular platform, Windows Desktop.</p>
+          <p>We're working on that.</p>
           </Notes>
           <Layout>
           <Fill>
@@ -590,7 +672,7 @@ export default class Presentation extends React.Component {
 
         <Slide transition={["fade"]} bgColor="secondary">
           <Notes>
-          Maria
+            You can see some screenshots of the mobile app. It's not that geeky :-)
           </Notes>
           <PhoneCarousel screenshots={[
             images.MobileAppScreenshot1,
@@ -601,18 +683,24 @@ export default class Presentation extends React.Component {
 
         <Slide transition={["fade"]} maxHeight="100vh" maxWidth="100vw" bgImage={images.OONIProbeScreenshot}>
           <Notes>
-          Maria
+            <p>Our desktop app is currently not that fancy and native as it's user interface is basically a webserver running locally.</p>
+            <p>That has some obvious drawbacks and we're currently working on cross-platform desktop app as well. Hopefully, some beta will be released this year.</p>
           </Notes>
         </Slide>
 
         <Slide transition={["fade"]} maxHeight="100vh" maxWidth="100vw" bgImage={images.OONIRunScreenshot}>
+          <Notes>
+            <p>OONI Run is basically an webapp to generate a deeplink for OONI Probe to handle.</p>
+            <p>So you can share that link across your social network to gather some measurements of network endpoints that are not currently measured.</p>
+            <p>That's implemented that way because OONI Probes should not be running measurements against URLs that were not reviewed for basic safety.</p>
+          </Notes>
           <FloatingLink url='https://run.ooni.io' />
         </Slide>
 
-
         <Slide transition={["fade"]} bgColor="white">
           <Notes>
-          Arturo
+          <p>The measurement data OONI Probe collects is processed with the pipeline and published at several endpoints.</p>
+          <p>OONI Explorer, OONI API and public Amazon S3 bucket</p>
           </Notes>
           <Heading textColor="secondary" style={{paddingBottom: '40px'}}>Open Data</Heading>
           <Layout>
@@ -631,21 +719,28 @@ export default class Presentation extends React.Component {
 
         <Slide transition={["fade"]} maxHeight="100vh" maxWidth="100vw" bgImage={images.OONIExplorerScreenshot}>
           <Notes>
-          Arturo
+          <p>OONI Explorer is a website devoted to fulfill basic human
+          curiosity about OONI Data: it shows the measurements we collect and
+          allows some filtering like checking if some specific website is
+          tested or, maybe, blocked.</p>
           </Notes>
           <FloatingLink url='https://explorer.ooni.io' />
         </Slide>
 
         <Slide transition={["fade"]} maxHeight="100vh" maxWidth="100vw" bgImage={images.OONIAPIScreenshot}>
           <Notes>
-          Arturo
+          <p>OONI API is the backend powering OONI Explorer. That's some
+          imperfect REST API on top of database strong measurements metadata.
+          It allows to list known measurements or fetch some subset of them.</p>
           </Notes>
           <FloatingLink url='https://api.ooni.io' />
         </Slide>
 
         <Slide transition={["fade"]} bgColor="white">
           <Notes>
-          Arturo
+          <p>Some research questions need full scan over whole dataset, for example, mining for new blockpages or features that are not available as metadata.</p>
+          <p>The dataset is not that huge, something around 8 Terabytes uncompressed, but implementing alike lookups within REST API is not that easy.</p>
+          <p>So, thanks to Amazon Open Data program, OONI Data is available as an ordinary S3 bucket for anyone to scan.</p>
           </Notes>
           <Heading size={1} textColor="secondary">Go RAW!</Heading>
           <Heading size={3} textColor="primary">Mining OONI data</Heading>
@@ -653,15 +748,43 @@ export default class Presentation extends React.Component {
         </Slide>
 
         <Slide transition={["fade"]} bgColor="secondary">
+          <Notes>
+          <p>And a reminder, if you see something strange in the data, don't hesitate to look at the source code, maybe that's just some bug in measurement code.</p>
+          </Notes>
           <Image src={images.SourceLuke} />
         </Slide>
 
         <Slide transition={["fade"]} bgColor="secondary" textColor="quaternary">
+          <Notes>
+          <p>And now I'd like to tell some anecdotes about abuse of the systems those are designed to serve and protect.</p>
+          </Notes>
           <Heading size={2} textColor="quarternary">What's wrong with</Heading>
           <Heading textColor="quarternary">Internet Censorship?</Heading>
         </Slide>
 
         <Slide transition={["fade"]} bgImage={images.FlagOfEgypt} bgDarken={0.7} bgSize='120%'>
+          <Notes>
+          <p>The first example comes from Egypt. It started as people at IRC
+          and DigitalOcean forums complaining about SSH being extremely
+          unreliable from Egypt.  Then HTTPS protocol joined the SSH.</p>
+          <p>But, all in all it's just another block in the firewall, I highlight this case for another reason.</p>
+          <p>There were also complains coming from people seeing
+          pop-under advertisements.  And their computers were clean according
+          to anti-virus scanners and their routers also seemed to be okay.
+          Thanks to anonymous cypherpunk, a reproducible case was found.</p>
+          <p>10% of HTTP traffic having mobile User-Agents towards most popular
+          adult websites from Alexa rank was redirected to some shady
+          advertisement campaign.  I name it shady not only because of pop-under ads.
+          We've successfully captured a sample that was classified as malware by
+          VirusTotal. That sample was served to user instead of porn as a part of the campaign.</p>
+          <p>Various IP packets characteristics suggested that it was not
+          compromised LAN router or compromised website responsible for the
+          redirection, these characteristics suggested that it was
+          approximately same network filtering equipment that was doing
+          aforementioned SSH and HTTPS filtering.</p>
+          <p>So, if Internet is really for porn, that campaign could actually be a noticeable threat for Egyptian networks.</p>
+          <p>The issue was resolved quite quickly after the report.</p>
+          </Notes>
           <CountryReportFinding>HTTPS throttled,  AlexaTop50 adult websites serving malware.<br/>Users complaining for months.</CountryReportFinding>
           <Appear fid="1" order={1}>
             <CountryReportFinding>Unauthorised access? Corrupt sysadmin?</CountryReportFinding>
@@ -678,7 +801,10 @@ export default class Presentation extends React.Component {
 
         <Slide transition={["fade"]} bgImage={images.FlagOfRussia} bgDarken={0.7} bgSize='100%'>
           <Notes>
-          Tried to ban gambling, banned crl3.digicert.com & ocsp.digicert.com for several days.
+          <p>Other anecdotes come from Russia.</p>
+          <p>[&#x1f5b0;]</p>
+          <p>Some TLS certificates come with OCSP, Online Certificate Status Protocol.</p>
+          <p>And TLS libraries implement OCSP and users suffer when OCSP fails.</p>
           </Notes>
           <Appear fid="1" order={1}>
           <div>
@@ -691,6 +817,15 @@ export default class Presentation extends React.Component {
         </Slide>
 
         <Slide transition={["fade"]} bgImage={images.FlagOfRussia} bgDarken={0.7} bgSize='100%'>
+          <Notes>
+            <p>The court ruled to ban some gambling app.</p>
+            <p>And experts tried to understand how to ban the app.</p>
+            <p>And something went wrong during the expertise.</p>
+            <p>[&#x1f5b0;]</p>
+            <p>Because Digicert OCSP responders were also banned as a result.</p>
+            <p>That caused some collateral damage making popular websites like Facebook and Wikipedia slow or unreachable depending on browser policy.</p>
+            <p>And, of course, it put some significant load on ISPs' customer support services.</p>
+          </Notes>
           <div>
             <CountryReportFinding>Prosecutor's experts try to ban gambling app endpoints<br/>
             Probably, enumerating them with network sniffer…
@@ -699,7 +834,7 @@ export default class Presentation extends React.Component {
           <Appear fid="1" order={1}>
             <div>
             <CountryReportFinding>Digicert OCSP responders are gone</CountryReportFinding>
-            <CountryReportFinding>Chrome and Firefox lag, Safari can't access wikipedia & facebook at all</CountryReportFinding>
+            <CountryReportFinding>Chrome and Firefox lag, Safari can't access Wikipedia & Facebook at all</CountryReportFinding>
             </div>
           </Appear>
           <CountryReportDate>October 2016</CountryReportDate>
@@ -707,13 +842,8 @@ export default class Presentation extends React.Component {
 
         <Slide transition={["fade"]} bgImage={images.FlagOfRussia} bgDarken={0.7} bgSize='100%'>
           <Notes>
-          story of Russian hacktivists abusing blocklists to CAUSE collateral
-          damage: trigger troubles with high-profile websites and killing ~10%
-          of traffic at Moscow Internet Exchange (MSK-IX) than handles half of
-          Russian internet traffic
-
-          MSK-IX-NET
-          195.208.208.0/21
+            <p>Another story is about Moscow Internet Exchange traffic disruption
+            caused by by some small count of DNS records.</p>
           </Notes>
           <div>
             <WhiteImageContainer>
@@ -724,10 +854,16 @@ export default class Presentation extends React.Component {
         </Slide>
 
         <Slide transition={["fade"]} bgImage={images.FlagOfRussia} bgDarken={0.7} bgSize='100%'>
+          <Notes>
+            <p>Hacktivists added some small subset of IP addresses from Moscow Internet Exchange IP network  as A records of some of blacklisted domain.</p>
+            <p><em><small>It was from <code>195.208.208.0/21</code> according to announces from MSK IX.</small></em></p>
+            <p>And the domain was resolved to some subset of most-specific IP routes in filtering subsystem.</p>
+            <p>And these most-specific routes appeared at some border routers. And, probably, it caused some peering issues. At least 8% of traffic was gone from Internet Exchange as we've seen in the picture.</p>
+          </Notes>
           <div>
             <CountryReportFinding>Hacktivists added <em>some</em> IPs from MSK-IX-NET
           as <code>A</code> records of blacklisted domain</CountryReportFinding>
-            <CountryReportFinding><em>Filtering</em> /32 routes appeared at borders…</CountryReportFinding>
+            <CountryReportFinding><em>Filtering</em> /32 routes appeared at some border routers…</CountryReportFinding>
           </div>
           <Appear fid="1" order={1}>
             <CountryReportFinding>8% of traffic is gone</CountryReportFinding>
@@ -736,6 +872,10 @@ export default class Presentation extends React.Component {
         </Slide>
 
         <Slide transition={["fade"]} bgImage={images.FlagOfRussia} bgDarken={0.7} bgSize='100%'>
+          <Notes>
+            <p>And the last one. That is not even an anecdote but a sad fairy tale.</p>
+            <p>That's the chart of BGP table growth. And you probably remember some issues with connectivity couple of years ago when the table hit the limit of half a million routes.</p>
+          </Notes>
           <div>
             <WhiteImageContainer>
             <Image height='600px' src={images.BGP} />
@@ -746,17 +886,18 @@ export default class Presentation extends React.Component {
 
         <Slide transition={["fade"]} bgImage={images.FlagOfRussia} bgDarken={0.7} bgSize='100%'>
           <Notes>
-            baltbet ~300..900
-            zenitbet ~600
-            grani ~600
-
-          possible threat of routers TCAM overflow possibly leading to
-          nation-wide internet outage through DNS abuse that possibly affects
-          Russian and South Korean networks according to various opinions and
-          DPI deployments recipes
+            <p>So what's the fairy tale about?</p>
+            <p>Russia blocks not only websites, it also blocks website mirrors.</p>
+            <p>Entities like BaltBet, ZenitBet and Grani have control over several hundreds of blacklisted domains. These entities are gambling and opposition media websites.</p>
+            <p>Other entities can take some subset of expired domains those are available for registration and are still stored in the blacklist.</p>
+            <p>Every domain can carry four thousands IP addresses in a single DNS reply to `A` query.</p>
+            <p>And these IP addresses are actually added to some routing tables of major IP-transit networks. That can be safely verified through traceroutes and looking glasses.</p>
+            <p>So, each of these entities can basically add two millions and a half of entries to routing table that is probably enough to take all TCAM of a modern router.</p>
+            <p>It's unclear if it'll cause any significant damage, but alike incidents caused some quite noticeable damage in the past. Anyway, doing full-scaled study like that is not legal, so I can just assume results of alike experiment.</p>
           </Notes>
           <div>
-            <CountryReportFinding>~600 domains for "entity" like Grani, BaltBet or ZenitBet<br/>
+            <CountryReportFinding>Single domain with 2000 IP addresses leads to 2000 /32 routes according to traceroutes and ISP looking glasses.</CountryReportFinding>
+            <CountryReportFinding>~600 domains for mirrors of single "entity" like Grani, BaltBet or ZenitBet<br/>
             (or ~3900 available expired domains per <a href="https://www.facebook.com/phil.kulin/posts/1572877259432666">Phil Kulin's stats</a>)
             </CountryReportFinding>
             <CountryReportFinding>&times; 4093 <code>A</code> DNS RRs per domain name</CountryReportFinding>
@@ -765,6 +906,12 @@ export default class Presentation extends React.Component {
         </Slide>
 
         <Slide transition={["fade"]} bgColor="white">
+          <Notes>
+            <p>So I told these stories to remind that Internet Censorship is not only political issue</p>
+            <p>It's not only about human rights and such.</p>
+            <p>It can also turn out to affect some security aspects of state-wide networks.</p>
+            <p>And doing that sort of research is lots of fun.</p>
+          </Notes>
           <Heading size={2} caps textColor="secondary">
             OONI Is
           </Heading>
@@ -783,6 +930,9 @@ export default class Presentation extends React.Component {
         </Slide>
 
         <Slide transition={["fade"]} bgColor="white">
+        <Notes>
+          <p>Thank you!</p>
+        </Notes>
         <Heading>Learn More</Heading>
         <List>
         <ListItem><Link href="https://ooni.torproject.org/">ooni.torproject.org</Link></ListItem>
