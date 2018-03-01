@@ -116,8 +116,8 @@ const ooEcosystem = {
     top: 0,
     left: 0
   },
-  SnycVerticalMonochrome: {
-    src: require("ooni-components/components/svgs/logos/Snyc-VerticalMonochrome.svg"),
+  SyncVerticalMonochrome: {
+    src: require("ooni-components/components/svgs/logos/Sync-VerticalMonochrome.svg"),
     top: GRID_HEIGHT,
     left: 0
   },
