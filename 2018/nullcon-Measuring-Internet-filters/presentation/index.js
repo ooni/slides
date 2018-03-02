@@ -777,6 +777,7 @@ export default class Presentation extends React.Component {
           advertisement campaign.  I name it shady not only because of pop-under ads.
           We've successfully captured a sample that was classified as malware by
           VirusTotal. That sample was served to user instead of porn as a part of the campaign.</p>
+          <p>[&#x1f5b0;]</p>
           <p>Various IP packets characteristics suggested that it was not
           compromised LAN router or compromised website responsible for the
           redirection, these characteristics suggested that it was
@@ -787,7 +788,7 @@ export default class Presentation extends React.Component {
           </Notes>
           <CountryReportFinding>HTTPS throttled,  AlexaTop50 adult websites serving malware.<br/>Users complaining for months.</CountryReportFinding>
           <Appear fid="1" order={1}>
-            <CountryReportFinding>Unauthorised access? Corrupt sysadmin?</CountryReportFinding>
+            <CountryReportFinding>Unauthorised access to DPI configuration? Corrupt sysadmin?</CountryReportFinding>
           </Appear>
           <div>
             <CountryReportHeading>Egypt</CountryReportHeading>
@@ -858,6 +859,7 @@ export default class Presentation extends React.Component {
             <p>Hacktivists added some small subset of IP addresses from Moscow Internet Exchange IP network  as A records of some of blacklisted domain.</p>
             <p><em><small>It was from <code>195.208.208.0/21</code> according to announces from MSK IX.</small></em></p>
             <p>And the domain was resolved to some subset of most-specific IP routes in filtering subsystem.</p>
+            <p>[&#x1f5b0;]</p>
             <p>And these most-specific routes appeared at some border routers. And, probably, it caused some peering issues. At least 8% of traffic was gone from Internet Exchange as we've seen in the picture.</p>
           </Notes>
           <div>
@@ -892,7 +894,7 @@ export default class Presentation extends React.Component {
             <p>Other entities can take some subset of expired domains those are available for registration and are still stored in the blacklist.</p>
             <p>Every domain can carry four thousands IP addresses in a single DNS reply to `A` query.</p>
             <p>And these IP addresses are actually added to some routing tables of major IP-transit networks. That can be safely verified through traceroutes and looking glasses.</p>
-            <p>So, each of these entities can basically add two millions and a half of entries to routing table that is probably enough to take all TCAM of a modern router.</p>
+            <p>So, each of these entities can basically add two millions and a half of routes to routing table that is probably enough to take all TCAM of a modern router.</p>
             <p>It's unclear if it'll cause any significant damage, but alike incidents caused some quite noticeable damage in the past. Anyway, doing full-scaled study like that is not legal, so I can just assume results of alike experiment.</p>
           </Notes>
           <div>
@@ -907,7 +909,7 @@ export default class Presentation extends React.Component {
 
         <Slide transition={["fade"]} bgColor="white">
           <Notes>
-            <p>So I told these stories to remind that Internet Censorship is not only political issue</p>
+            <p>So I told these stories to remind that Internet Censorship is not only political issue.</p>
             <p>It's not only about human rights and such.</p>
             <p>It can also turn out to affect some security aspects of state-wide networks.</p>
             <p>And doing that sort of research is lots of fun.</p>
