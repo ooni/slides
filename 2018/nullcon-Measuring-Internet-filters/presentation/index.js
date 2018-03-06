@@ -863,8 +863,7 @@ export default class Presentation extends React.Component {
             <p>And these most-specific routes appeared at some border routers. And, probably, it caused some peering issues. At least 8% of traffic was gone from Internet Exchange as we've seen in the picture.</p>
           </Notes>
           <div>
-            <CountryReportFinding>Hacktivists added <em>some</em> IPs from MSK-IX-NET
-          as <code>A</code> records of blacklisted domain</CountryReportFinding>
+            <CountryReportFinding>Hacktivists added <em>some</em> IPs from MSK-IX-NET as <code>A</code> records of blacklisted domain</CountryReportFinding>
             <CountryReportFinding><em>Filtering</em> /32 routes appeared at some border routers…</CountryReportFinding>
           </div>
           <Appear fid="1" order={1}>
