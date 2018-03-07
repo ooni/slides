@@ -64,6 +64,9 @@ const images = {
   ASNMap1: require("../assets/ASNMap1.png"),
   ASNMap2: require("../assets/ASNMap2.png"),
   OONIBlob: require("../assets/ooniblob.jpg"),
+  Nerd: require("../assets/nerd.jpg"),
+  Worker: require("../assets/worker.jpg"),
+  Hipster: require("../assets/hipster.jpg"),
 };
 
 preload(images)
@@ -280,8 +283,9 @@ export default class Presentation extends React.Component {
         </Slide>
 
         <Slide transition={["fade"]} bgColor="white">
-          <Heading textColor="secondary" size={4}>Open in your browser</Heading>
-          <Text>http://10.1.1.99/</Text>
+          <Heading textColor="secondary" size={4}>Download some files</Heading>
+          <Text>1. Connect to CIPESA WIFI (pass: 404Error)</Text>
+          <Text>2. Go to http://10.1.1.4/</Text>
         </Slide>
 
         <Slide transition={["fade"]} bgColor="white">
@@ -384,6 +388,41 @@ export default class Presentation extends React.Component {
 
           <GithubLink>https://github.com/TheTorProject/ooni-spec/blob/master/test-specs/ts-017-web-connectivity.md</GithubLink>
         </Slide>
+
+        <Slide transition={["fade"]} bgColor="white">
+          <Heading size={3} textColor="secondary">Let's mine some data!</Heading>
+          <Layout>
+          <Fill>
+          <Appear fid="1">
+            <div>
+            <Image src={images.Worker} height={"200px"} />
+            <Heading size={4} textColor="primary">
+              Excel
+            </Heading>
+            </div>
+          </Appear>
+          <Appear fid="2">
+            <div>
+            <Image src={images.Hipster} height={"200px"} />
+            <Heading size={4} textColor="primary">
+              Tableau
+            </Heading>
+            </div>
+          </Appear>
+          </Fill>
+          <Fill>
+          <Appear fid="3">
+            <div>
+            <Image src={images.Nerd} height={"200px"} />
+            <Heading size={4} textColor="primary">
+              Jupyter (python)
+            </Heading>
+            </div>
+          </Appear>
+          </Fill>
+          </Layout>
+        </Slide>
+
         <Slide transition={["fade"]} bgColor="white">
         <Heading size={2} textColor="secondary">CSV exports</Heading>
         <List>
@@ -401,6 +440,7 @@ export default class Presentation extends React.Component {
         <ListItem textSize='2rem'>web_connectivity-only_anomalies.csv</ListItem>
         </List>
         </Slide>
+
 
         <Slide transition={["fade"]} bgColor="white">
         <Heading>Learn More</Heading>
