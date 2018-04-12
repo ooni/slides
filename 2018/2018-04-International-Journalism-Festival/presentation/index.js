@@ -554,7 +554,7 @@ export default class Presentation extends React.Component {
           </Appear>
           <Appear fid="3" order={3}>
             <CountryReportFinding>Blocking of 41 websites through
-              Deep Packet Inspection (DPI) implemented using Huawei
+              Deep Packet Inspection (DPI) probably implemented using Huawei
               devices.</CountryReportFinding>
           </Appear>
           <Appear fid="4" order={4}>
