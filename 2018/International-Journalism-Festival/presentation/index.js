@@ -118,11 +118,6 @@ const ooEcosystem = {
     top: 0,
     left: 0
   },
-  SyncVerticalMonochrome: {
-    src: require("ooni-components/components/svgs/logos/Sync-VerticalMonochrome.svg"),
-    top: GRID_HEIGHT,
-    left: 0
-  },
 
   RunVerticalMonochrome: {
     src: require("ooni-components/components/svgs/logos/Run-VerticalMonochrome.svg"),
@@ -392,6 +387,7 @@ export default class Presentation extends React.Component {
           </Heading>
         </Slide>
 
+{/*
         <Slide transition={["zoom"]} bgColor="white">
           <Image width="300px" src={images.OONIVerticalColor} align='right'/>
           <Heading size={3} textColor="primary">The Open Observatory of Network Interference</Heading>
@@ -436,6 +432,7 @@ export default class Presentation extends React.Component {
           </Fill>
           </Layout>
         </Slide>
+*/}
 
         <Slide transition={["fade"]} bgColor="secondary">
           <PhoneCarousel screenshots={[
@@ -445,6 +442,7 @@ export default class Presentation extends React.Component {
           ]}/>
         </Slide>
 
+{/*
         <Slide transition={["fade"]} bgColor="white">
           <Notes>
           Arturo
@@ -475,16 +473,20 @@ export default class Presentation extends React.Component {
             </NettestType>
           </Layout>
         </Slide>
+*/}
 
         <Slide transition={["fade"]} bgColor="white">
           <Image src={images.HTTPInvalidRequestLine} />
-          <Heading size={4}>HTTP Invalid Request Line</Heading>
+          <Heading size={4}>Middle Boxes</Heading>
         </Slide>
+
+{/*
 
         <Slide transition={["fade"]} bgColor="white">
           <Image src={images.WebConnectivity} />
           <Heading size={4}>Web Connectivity</Heading>
         </Slide>
+*/}
 
         <Slide transition={["fade"]} maxHeight="100vh" maxWidth="100vw" bgImage={images.OONIExplorerScreenshot}>
           <Notes>
@@ -493,9 +495,11 @@ export default class Presentation extends React.Component {
           <FloatingLink url='https://explorer.ooni.io' />
         </Slide>
 
+{/*
         <Slide transition={["fade"]} maxHeight="100vh" maxWidth="100vw" bgImage={images.OONIAPIScreenshot}>
           <FloatingLink url='https://ooni.torproject.org/post/mining-ooni-data/' />
         </Slide>
+*/}
 
         <Slide transition={["fade"]} bgImage={images.FlagOfSpain} bgDarken={0.7} bgSize='120%'>
           <Notes>
@@ -521,6 +525,7 @@ export default class Presentation extends React.Component {
           </Appear>
         </Slide>
 
+{/*
         <Slide transition={["fade"]} bgImage={images.FlagOfIran} bgDarken={0.7} bgSize='120%'>
           <Notes>
           Maria
@@ -544,6 +549,7 @@ export default class Presentation extends React.Component {
             <Link href='https://ooni.torproject.org/post/iran-internet-censorship/'>https://ooni.torproject.org/post/iran-internet-censorship/</Link>
           </div>
         </Slide>
+*/}
 
         <Slide transition={["fade"]} bgImage={images.CubaParknets} bgDarken={0.7} bgSize='120%'>
           <Appear fid="2" order={2}>
@@ -575,6 +581,7 @@ export default class Presentation extends React.Component {
           </Appear>
         </Slide>
 
+{/*
         <Slide transition={["fade"]} bgColor="white">
           <Heading>Thank You!</Heading>
           <List>
@@ -585,6 +592,7 @@ export default class Presentation extends React.Component {
             <ListItem><Link>contact@openobservatory.org</Link></ListItem>
           </List>
         </Slide>
+*/}
 
       </Deck>
     );
