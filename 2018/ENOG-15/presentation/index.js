@@ -43,6 +43,7 @@ import theme from "../themes/ooni/index.js";
 const images = {
   RevizorTraf: require("../assets/revizor-traf.jpg"),
   Usher2Morze: require("../assets/usher2-morze.png"),
+  Usher2Telegram: require("../assets/usher2-telegram.png"),
   OONIHorizontalColor: require("ooni-components/components/svgs/logos/OONI-HorizontalColor.svg"),
   PipelineHorizontalMonochrome: require("ooni-components/components/svgs/logos/Pipeline-HorizontalMonochrome.svg"),
   APIHorizontalMonochrome: require("ooni-components/components/svgs/logos/API-HorizontalMonochrome.svg"),
@@ -322,13 +323,21 @@ export default class Presentation extends React.Component {
 
         <Slide bgColor="white">
           <Notes>
-            Знакомые графики? Это всё примеры мониторинга.
+            Знакомые графики?
           </Notes>
           <Image width='920px' src={images.RevizorTraf} />
           <Appear fid="2" order={2}>
             <Image width='920px' src={images.Usher2Morze} />
           </Appear>
           <Heading size={3}>Знакомый график?</Heading>
+        </Slide>
+
+        <Slide bgColor="white">
+          <Notes>
+            Это всё примеры мониторинга.
+          </Notes>
+          <Image width='920px' src={images.Usher2Telegram} />
+          <Link href='https://usher2.club/'>Клуб «Эшер II»: usher2.club</Link>
         </Slide>
 
         <Slide>
@@ -347,6 +356,7 @@ export default class Presentation extends React.Component {
 
         <Slide>
           <Heading size={3}>В бане /10. Что «упало»?</Heading>
+          <p>О чём предупредить саппорт?…</p>
           <Appear fid="2" order={2}>
             <CountryReportFinding>
               Проверить AS.<br/>
@@ -531,6 +541,7 @@ export default class Presentation extends React.Component {
           <Heading size={2} fit>Спасибо!</Heading>
           <List>
             <ListItem><Link href="https://ooni.torproject.org/">ooni.torproject.org</Link></ListItem>
+            <ListItem><Link href="https://slides.ooni.io/2018/enog-15/">slides.ooni.io/2018/enog-15</Link></ListItem>
             <Heading size={4}>Контакты</Heading>
             <ListItem><Link>leonid@openobservatory.org</Link></ListItem>
             <ListItem><Link>contact@openobservatory.org</Link></ListItem>
