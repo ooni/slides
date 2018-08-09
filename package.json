@@ -6,13 +6,57 @@
     "type": "git",
     "url": "git+https://github.com/OpenObservatory/slides.git"
   },
-  "author": "Open Observatory of Network Interference",
-  "license": "BSD-2-Clause",
+  "author": "",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/OpenObservatory/slides/issues"
   },
   "homepage": "https://github.com/OpenObservatory/slides#readme",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "build:static": "yarn run build && next export",
+    "start": "next start"
+  },
   "dependencies": {
+    "@zeit/next-css": "0.0.7",
+    "chroma-js": "^1.3.4",
+    "next": "^6.1.1",
+    "normalize.css": "7.0.0",
+    "ooni-components": "^0.1.0-beta.7",
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0",
+    "react-icons": "^2.2.7",
+    "react-no-ssr": "^1.1.0",
+    "react-svg-inline": "^2.0.1",
+    "spectacle": "^4.0.4",
+    "spectacle-code-slide": "^0.5.2",
+    "spectacle-renderer": "^0.0.3",
+    "spectacle-terminal": "^0.5.0",
     "yarn": "^1.3.2"
+  },
+  "devDependencies": {
+    "eslint": "^4.9.0",
+    "eslint-config-formidable": "^3.0.0",
+    "eslint-plugin-filenames": "^1.2.0",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-react": "^7.4.0",
+    "file-loader": "^1.1.5",
+    "html-loader": "^0.5.1",
+    "is-buffer": "^1.1.5",
+    "markdown-loader": "^2.0.1",
+    "node-libs-browser": "^2.0.0",
+    "raw-loader": "^0.5.1",
+    "react-hot-loader": "^3.1.1",
+    "react-transform-catch-errors": "^1.0.2",
+    "redbox-react": "^1.5.0",
+    "surge": "latest",
+    "url-loader": "^0.6.2"
+  },
+  "resolutions": {
+    "grid-styled": "2.0.0-11",
+    "rebass": "1.0.4",
+    "styled-components": "2.4.1",
+    "styled-system": "1.1.0"
   }
 }
