@@ -297,8 +297,8 @@ export default class Presentation extends React.Component {
           </Heading>
           <Heading size={6}>
           Леонид Евдокимов<br/>
-          ENOG 15<br />
-          Москва, 5 июня 2018
+          <strike>ENOG 15</strike><br />
+          <strike>Москва, 5 июня 2018</strike>
           </Heading>
         </Slide>
 
