@@ -1,33 +1,36 @@
+const glob = require('glob')
+
 const withCSS = require('@zeit/next-css')
 
 module.exports = withCSS({
+  exportPathMap: () => {
+    const pm = {}
+    glob.sync('pages/*/*/index.js', { ignore: 'pages/_document.js' }).forEach(s => {
+      const path = s.split(/(pages|\.)/)[2].replace(/\/index$/, '')
+      pm[path] = { page: path }
+    })
+    return pm
+  },
   webpack: (config, { isServer }) => {
+    config.module.rules.push({
+      test: /\.(png|gif|jpg|svg|eot|otf|ttf|woff|woff2)$/,
+      use: {
+        loader: 'url-loader',
+        options: {
+          limit: 100000,
+          publicPath: '/_next/static/',
+          outputPath: 'static/',
+          name: '[name].[ext]'
+        }
+      }
+    })
     config.module.rules.push({
       test: /\.md$/,
       loader: "html-loader!markdown-loader?gfm=false"
     })
     config.module.rules.push({
-      test: /\.svg$/,
-      loader: "url-loader?limit=10000&mimetype=image/svg+xml"
-    })
-    config.module.rules.push({
       test: /\.mp4$/,
       loader: "file-loader?mimetype=video/mp4"
-    })
-    config.module.rules.push({
-      test: /\.png$/,
-      loader: "url-loader?mimetype=image/png",
-      //include: path.join(__dirname, "assets")
-    })
-    config.module.rules.push({
-      test: /\.gif$/,
-      loader: "url-loader?mimetype=image/gif",
-      //include: path.join(__dirname, "assets")
-    })
-    config.module.rules.push({
-      test: /\.jpg$/,
-      loader: "url-loader?mimetype=image/jpg",
-      //include: path.join(__dirname, "assets")
     })
     return config
   }

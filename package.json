@@ -15,7 +15,7 @@
   "scripts": {
     "dev": "next",
     "build": "next build",
-    "build:static": "yarn run build && next export",
+    "export": "yarn run build && next export",
     "start": "next start"
   },
   "dependencies": {
@@ -24,6 +24,7 @@
     "next": "^6.1.1",
     "normalize.css": "7.0.0",
     "ooni-components": "^0.1.0-beta.7",
+    "qrcode.react": "^0.8.0",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
     "react-icons": "^2.2.7",

@@ -1,6 +1,6 @@
 .DS_Store
 package-lock.json
 node_modules/
-public/
-yarn.lock
+/out/
 .next/
+yarn.lock
