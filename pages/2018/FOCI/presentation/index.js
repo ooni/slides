@@ -1,10 +1,15 @@
-// Import React
 import React from "react"
 
 import styled from 'styled-components'
 
 import chroma from 'chroma-js'
 import { colors } from 'ooni-components'
+import {
+  NettestGroupInstantMessaging,
+  NettestGroupMiddleBoxes,
+  NettestGroupPerformance,
+  NettestGroupWebsites
+} from 'ooni-components/dist/icons'
 
 import 'prismjs/themes/prism.css'
 
@@ -40,11 +45,13 @@ import Terminal from "spectacle-terminal"
 import CodeSlide from 'spectacle-code-slide'
 
 // Import theme
-import theme from "../themes/ooni/index.js";
+import theme from "../../../../components/themes/ooni/index.js";
 
-import WorldDots from './WorldDots'
+import WorldDots from '../../../../components/WorldDots'
+import PhoneCarousel from '../../../../components/PhoneCarousel'
 
 const images = {
+  OONIFOCI: require("../assets/OONI-FOCI-12.png"),
   SourceLuke: require("../assets/source-luke.jpg"),
   OONIHorizontalColor: require("ooni-components/components/svgs/logos/OONI-HorizontalColor.svg"),
   OONIVerticalColor: require("ooni-components/components/svgs/logos/OONI-VerticalColor.svg"),
@@ -59,13 +66,8 @@ const images = {
   FlagOfPakistan: require("../assets/Flag_of_Pakistan.svg"),
   FlagOfSpain: require("../assets/Flag_of_Spain.svg"),
   BlockedDomainsInIran: require("../assets/BlockedDomainsInIran.svg"),
-  MiddleBoxes: require("../assets/MiddleBoxes.svg"),
-  PerformanceBolt: require("../assets/PerformanceBolt.svg"),
-  WebCensorshipCross: require("../assets/WebCensorshipCross.svg"),
+
   OnionBlue: require("../assets/Onion_Blue_Icon.svg"),
-  Nexus5: require("../assets/Nexus5.svg"),
-  Nexus5Left: require("../assets/Nexus5Left.svg"),
-  Nexus5Right: require("../assets/Nexus5Right.svg"),
   MobileAppScreenshot1: require("../assets/MobileAppScreenshot1.jpg"),
   MobileAppScreenshot2: require("../assets/MobileAppScreenshot2.jpg"),
   MobileAppScreenshot3: require("../assets/MobileAppScreenshot3.jpg"),
@@ -292,78 +294,11 @@ const NettestType = styled(Fill)`
   }
 `
 
-const PhoneContainer = styled(Fill)`
-  position: relative;
-  perspective: 500px;
-  opacity: ${props => props.active ? '1' : '0.7'};
-  transition: opacity 3s;
+
+
+const BlueNumber = styled.span`
+  color: ${colors.palette.blue5};
 `
-
-const Screenshot = styled.div`
-  position: absolute;
-  top: 70px;
-  left: 15px;
-  img {
-    width: 275px;
-    margin: 0;
-  }
-`
-
-const PhoneAndScreenshot = styled.div`
-  ${props => {
-    if (props.active) {
-      return '';
-    }
-    return 'transform: translateZ(-200px);';
-  }};
-  transition: transform 3s;
-`
-
-class PhoneCarousel extends React.Component {
-  constructor() {
-    super()
-    this.state = {
-      activeIdx: 0
-    }
-    this.change = this.change.bind(this)
-  }
-
-  componentDidMount(){
-    this.change()
-    setInterval(this.change, 15000)
-  }
-
-  change() {
-    this.setState({
-      activeIdx: (this.state.activeIdx + 1) % 3
-    })
-  }
-  render() {
-    const {
-      activeIdx
-    } = this.state
-    const {
-      screenshots
-    } = this.props
-
-    return (
-      <Layout>
-        {[0,1,2].map(idx => {
-          return (
-            <PhoneContainer active={idx == activeIdx}>
-              <PhoneAndScreenshot active={idx == activeIdx}>
-                <Screenshot>
-                  <Image src={screenshots[idx]} />
-                </Screenshot>
-                <Image src={images.Nexus5} width="300px" />
-              </PhoneAndScreenshot>
-            </PhoneContainer>
-          )
-        })}
-      </Layout>
-    )
-  }
-}
 
 export default class Presentation extends React.Component {
   render() {
@@ -379,24 +314,7 @@ export default class Presentation extends React.Component {
           </Heading>
         </Slide>
 
-        <Slide transition={["fade"]} bgColor="secondary" textColor="quaternary">
-          <Heading size={2} caps textColor="quarternary">Why measure Internet Censorship?</Heading>
-        </Slide>
-
-        <Slide transition={["fade"]} bgColor="white">
-          <ul>
-            <li>It’s harder to notice the blocking of less popular sites and services.</li>
-            <li>Internet censorship often differs from network to network within a country.</li>
-            <li>Most censorship techniques are quite subtle.</li>
-            <li>Cases of over-blocking, collateral damage, and censorship leakages.</li>
-            <li>The fact that a site or service is inaccessible doesn’t necessarily mean that it’s blocked by your ISP.</li>
-          </ul>
-        </Slide>
-
         <Slide transition={["zoom"]} bgColor="white">
-          <Notes>
-          </Notes>
-
           <Image width="300px" src={images.OONIVerticalColor} align='right'/>
           <Heading size={3} textColor="primary">The Open Observatory of Network Interference</Heading>
           <WorldDotsBg>
@@ -435,88 +353,51 @@ export default class Presentation extends React.Component {
           </Appear>
         </Slide>
 
-        <Slide transition={["fade"]} bgImage={images.FlagOfEthiopia} bgDarken={0.7} bgSize='120%'>
-          <Appear fid="2" order={2}>
-            <CountryReportFinding>WhatsApp Blocked</CountryReportFinding>
-          </Appear>
-          <Appear fid="3" order={3}>
-            <CountryReportFinding>Deep Packet Inspection (DPI) detected</CountryReportFinding>
-          </Appear>
-          <Appear fid="4" order={4}>
-            <CountryReportFinding>Media outlets, LGBT sites, human rights websites,
-            political opposition sites & censorship circumvention tool sites found to be
-            blocked</CountryReportFinding>
-          </Appear>
-          <Appear fid="1" order={1}>
-            <div>
-            <CountryReportHeading>Ethiopia&#39;s wave of political protests</CountryReportHeading>
-            <CountryReportDate>December 2016</CountryReportDate>
-            </div>
-          </Appear>
-          <Appear fid="4" order={4}>
-            <Link href='https://ooni.torproject.org/post/ethiopia-report/'>https://ooni.torproject.org/post/ethiopia-report/</Link>
-          </Appear>
+        <Slide transition={["zoom"]} bgColor="white">
+            <Image src={images.OONIFOCI} />
         </Slide>
 
-        <Slide transition={["fade"]} bgImage={images.FlagOfIran} bgDarken={0.7} bgSize='120%'>
-          <Notes>
-          <h4>Notes</h4>
-          <ol>
-          <li>Thousands of ooniprobe network measurements collected from 60
-          local networks across Iran over the last three years have confirmed
-          the blocking of 886 domains (and 1,019 URLs in total)</li>
-          <li>Facebook Messenger was blocked using DNS manipulation</li>
-          <li>One of the most advanced censoring regimes</li>
-          <li>Non deterministic censorship</li>
-          <li>Instagram became entirely blocked when it switched to HTTPS</li>
-          <li>Export laws make website also block acccess FROM Iran</li>
-          </ol>
-          </Notes>
-
-          <div>
-            <WhiteImageContainer>
-            <Image height='600px' src={images.BlockedDomainsInIran} />
-            </WhiteImageContainer>
-            <CountryReportDate>September 2017</CountryReportDate>
-            <Link href='https://ooni.torproject.org/post/iran-internet-censorship/'>https://ooni.torproject.org/post/iran-internet-censorship/</Link>
-          </div>
-        </Slide>
-
-        <Slide transition={["fade"]} bgImage={images.FlagOfSpain} bgDarken={0.7} bgSize='120%'>
-          <Notes>
-            <h4>Speaker notes</h4>
-            <ol>
-            <li>Confirm the blocking of at least 25 sites related to the Catalan referendum</li>
-            </ol>
-          </Notes>
-          <Appear fid="2" order={2}>
-            <CountryReportFinding>At least 25 websites related to the Catalonia Independence Referendum were blocked.</CountryReportFinding>
+        <Slide transition={["fade"]} bgColor="white">
+          <Heading size={2} caps textColor="secondary">
+            OONI Today
+          </Heading>
+          <Appear fid="1">
+            <Heading size={2} caps fit textColor="primary">
+              <BlueNumber>200+</BlueNumber> countries every month
+            </Heading>
           </Appear>
-          <Appear fid="3" order={3}>
-            <CountryReportFinding>The .cat registry was raided and forced to take down many websites.</CountryReportFinding>
+          <Appear fid="1">
+            <Heading size={2} caps fit textColor="primary">
+              <BlueNumber>4.5k</BlueNumber> networks every month
+            </Heading>
           </Appear>
-          <Appear fid="1" order={1}>
+          <Appear fid="2">
+            <Heading size={2} caps fit textColor="primary">
+              <BlueNumber>20k+</BlueNumber> monthly active users
+            </Heading>
+          </Appear>
+          <Appear fid="3">
+            <Heading size={2} caps fit textColor="primary">
+              <BlueNumber>20</BlueNumber> published research reports
+            </Heading>
+          </Appear>
+          <Appear fid="4">
             <div>
-            <CountryReportHeading>Spain</CountryReportHeading>
-            <CountryReportDate>October 2017</CountryReportDate>
+            <Heading size={2} caps fit textColor="secondary">
+              Is a growing global community
+            </Heading>
+            <Heading size={2} caps fit textColor="secondary">
+             of censorship measurement researchers!
+            </Heading>
             </div>
-          </Appear>
-          <Appear fid="4" order={4}>
-            <Link href='https://ooni.torproject.org/post/internet-censorship-catalonia-independence-referendum/'>https://ooni.torproject.org/post/internet-censorship-catalonia-independence-referendum/</Link>
           </Appear>
         </Slide>
 
         <Slide transition={["fade"]} bgColor="secondary">
-          <Notes>
-          Arturo
-          </Notes>
           <Heading textColor="quarternary">OONI Software Ecosystem</Heading>
         </Slide>
 
         <Slide transition={["fade"]} bgColor="white">
-          <Notes>
-          Arturo
-          </Notes>
           <EcosystemContainer>
           {Object.keys(ooEcosystem).map(key => {
             const item = ooEcosystem[key]
@@ -530,18 +411,36 @@ export default class Presentation extends React.Component {
         </Slide>
 
         <Slide transition={["fade"]} bgColor="white">
-          <Notes>
-          Arturo
-          </Notes>
+          <Heading size={2} textColor="primary">Challenge #1</Heading>
+          <Text>Balancing the risks and acquiring informed consent</Text>
+        </Slide>
+
+        <Slide transition={["fade"]} bgColor="white">
+          <Heading size={2} textColor="primary">Challenge #2</Heading>
+          <Text>The OONI dataset is now totalling more than 10 TB of data and it grows at a rate of ~50GB per day.</Text>
+        </Slide>
+
+        <Slide transition={["fade"]} bgColor="white">
+          <Heading size={2} textColor="primary">Challenge #3</Heading>
+          <Text>Supporting mobile platforms and delivering a consistent user experience.</Text>
+        </Slide>
+
+        <Slide transition={["fade"]} bgColor="white">
+          <Heading size={2} textColor="primary">Challenge #4</Heading>
+          <Text>Making data easy to access and use, but at the same time not
+          making it subject to misinterpretation.</Text>
+        </Slide>
+
+        <Slide transition={["fade"]} bgColor="white">
           <Heading size={2} textColor="primary">OONI Software tests</Heading>
           <Layout style={{paddingTop: '40px'}}>
             <NettestType>
-              <Image src={images.WebCensorshipCross} height="150px" />
+              <NettestGroupWebsites size="150px" />
               <Heading size={4}>Web Censorship</Heading>
             </NettestType>
 
             <NettestType>
-              <MdChatBubble size="150px" />
+              <NettestGroupInstantMessaging size="150px" />
               <Heading size={4}>Instant Messaging Apps</Heading>
             </NettestType>
 
@@ -553,12 +452,12 @@ export default class Presentation extends React.Component {
           </Layout>
           <Layout style={{paddingTop: '20px'}}>
             <NettestType>
-              <Image src={images.MiddleBoxes} height="150px" />
+              <NettestGroupMiddleBoxes size="150px" />
               <Heading size={4} style={{paddingTop: '20px'}}>Middleboxes</Heading>
             </NettestType>
 
             <NettestType>
-              <Image src={images.PerformanceBolt} height="150px" />
+              <NettestGroupPerformance size="150px" />
               <Heading size={4} style={{paddingTop: '20px'}}>Speed & Performance</Heading>
             </NettestType>
           </Layout>
@@ -657,51 +556,6 @@ export default class Presentation extends React.Component {
           <Text textColor="primary">https://ooni.torproject.org/post/mining-ooni-data/</Text>
         </Slide>
 
-        <Slide transition={["fade"]} bgColor="secondary">
-          <Heading size={2} caps textColor="white">ooni-sync</Heading>
-          <Terminal title="" output={[
-            "$ ooni-sync -directory data/ZA probe_cc=ZA",
-            "Index: https://api.ooni.io/api/v1/files?limit=1000&offset=0&order=asc&order_by=idx&probe_cc=ZA",
-            "Index: https://api.ooni.io/api/v1/files?limit=1000&offset=1000&order=asc&order_by=idx&probe_cc=ZA",
-            "   1/6258 ok: data/ZA/20140311T214614Z-ZA-AS3741-http_header_field_manipulation-no_report_id-0.1.0-probe.yaml"
-          ]} />
-          <Text textColor="white">https://github.com/thetorproject/ooni-sync</Text>
-        </Slide>
-
-        <Slide transition={["fade"]} bgColor="secondary">
-          <Heading size={2} caps textColor="white">AWS S3</Heading>
-          <Terminal title="" output={[
-          "$ aws s3 cp --recursive s3://ooni-data/autoclaved/jsonl/ data/",
-          "download: s3://ooni-data/autoclaved/jsonl/2012-12-07/20121206T203929Z-MM-AS18399-dns_consistency-no_report_id-0.1.0-probe.yaml to data/2012-12-07/20121206T203929Z-MM-AS18399-dns_consistency-no_report_id-0.1.0-probe.yaml",
-          "Completed 32.3 MiB/~3.9 GiB (568.4 KiB/s) with ~695 file(s) remaining (calculating...).)"
-          ]} />
-          <Text textColor="white">https://aws.amazon.com/cli/</Text>
-        </Slide>
-
-        <Slide transition={["fade"]} bgColor="secondary">
-          <Image src={images.SourceLuke} />
-        </Slide>
-
-        <CodeSlide
-            bgColor="#ccc"
-            textSize="20px"
-            transition={[]}
-            lang="python"
-            code={require("raw-loader!../assets/code/mining-ooni-data.py")}
-            ranges={[
-              { loc: [26, 28], title: "Essential tools" },
-              { loc: [31, 35], title: "When you have loads of data" },
-              { loc: [539, 557], title: "" }, // get_all_dfs
-              { loc: [545, 546], title: "" },
-              { loc: [516, 525], title: "" },
-              { loc: [407, 416], title: "" }, // extract_vanilla_tor
-              { loc: [225, 237], title: "" }, // extract_web_connectivity
-              { loc: [42, 56], title: "" },
-              { loc: [558, 560], title: "" },
-              { loc: [560, 562], title: "" },
-              { loc: [578, 587], title: "" }
-            ]}/>
-
           <Slide transition={["fade"]} bgColor="white">
           <Heading>Learn More</Heading>
           <List>
@@ -715,6 +569,77 @@ export default class Presentation extends React.Component {
           <ListItem><Link>contact@openobservatory.org</Link></ListItem>
           </List>
           </Slide>
+
+        <Slide transition={["fade"]} bgImage={images.FlagOfEthiopia} bgDarken={0.7} bgSize='120%'>
+          <Appear fid="2" order={2}>
+            <CountryReportFinding>WhatsApp Blocked</CountryReportFinding>
+          </Appear>
+          <Appear fid="3" order={3}>
+            <CountryReportFinding>Deep Packet Inspection (DPI) detected</CountryReportFinding>
+          </Appear>
+          <Appear fid="4" order={4}>
+            <CountryReportFinding>Media outlets, LGBT sites, human rights websites,
+            political opposition sites & censorship circumvention tool sites found to be
+            blocked</CountryReportFinding>
+          </Appear>
+          <Appear fid="1" order={1}>
+            <div>
+            <CountryReportHeading>Ethiopia&#39;s wave of political protests</CountryReportHeading>
+            <CountryReportDate>December 2016</CountryReportDate>
+            </div>
+          </Appear>
+          <Appear fid="4" order={4}>
+            <Link href='https://ooni.torproject.org/post/ethiopia-report/'>https://ooni.torproject.org/post/ethiopia-report/</Link>
+          </Appear>
+        </Slide>
+
+        <Slide transition={["fade"]} bgImage={images.FlagOfIran} bgDarken={0.7} bgSize='120%'>
+          <Notes>
+          <h4>Notes</h4>
+          <ol>
+          <li>Thousands of ooniprobe network measurements collected from 60
+          local networks across Iran over the last three years have confirmed
+          the blocking of 886 domains (and 1,019 URLs in total)</li>
+          <li>Facebook Messenger was blocked using DNS manipulation</li>
+          <li>One of the most advanced censoring regimes</li>
+          <li>Non deterministic censorship</li>
+          <li>Instagram became entirely blocked when it switched to HTTPS</li>
+          <li>Export laws make website also block acccess FROM Iran</li>
+          </ol>
+          </Notes>
+
+          <div>
+            <WhiteImageContainer>
+            <Image height='600px' src={images.BlockedDomainsInIran} />
+            </WhiteImageContainer>
+            <CountryReportDate>September 2017</CountryReportDate>
+            <Link href='https://ooni.torproject.org/post/iran-internet-censorship/'>https://ooni.torproject.org/post/iran-internet-censorship/</Link>
+          </div>
+        </Slide>
+
+        <Slide transition={["fade"]} bgImage={images.FlagOfSpain} bgDarken={0.7} bgSize='120%'>
+          <Notes>
+            <h4>Speaker notes</h4>
+            <ol>
+            <li>Confirm the blocking of at least 25 sites related to the Catalan referendum</li>
+            </ol>
+          </Notes>
+          <Appear fid="2" order={2}>
+            <CountryReportFinding>At least 25 websites related to the Catalonia Independence Referendum were blocked.</CountryReportFinding>
+          </Appear>
+          <Appear fid="3" order={3}>
+            <CountryReportFinding>The .cat registry was raided and forced to take down many websites.</CountryReportFinding>
+          </Appear>
+          <Appear fid="1" order={1}>
+            <div>
+            <CountryReportHeading>Spain</CountryReportHeading>
+            <CountryReportDate>October 2017</CountryReportDate>
+            </div>
+          </Appear>
+          <Appear fid="4" order={4}>
+            <Link href='https://ooni.torproject.org/post/internet-censorship-catalonia-independence-referendum/'>https://ooni.torproject.org/post/internet-censorship-catalonia-independence-referendum/</Link>
+          </Appear>
+        </Slide>
 
       </Deck>
     );
