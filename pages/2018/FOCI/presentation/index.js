@@ -300,21 +300,21 @@ export default class Presentation extends React.Component {
           <Notes>
           Arturo
           </Notes>
-          <Image style={{paddingBottom: '30px'}} width="600px" src={images.OONIHorizontalColor} />
           <Heading size={2}>
           Growing the Open Observatory of Network Interference
           </Heading>
           <Heading size={6}>
-          FOCI, Baltimore, 13th August 2018
+          FOCI, Baltimore, 14th August 2018
           </Heading>
           <Heading size={6}>
           Arturo Filastò, Simone Basso
           </Heading>
+          <Image width='300px' style={{paddingTop: '30px'}} src={images.OONIHorizontalColor} />
         </Slide>
 
         <Slide transition={["zoom"]} bgColor="white">
           <Notes>
-          Arturo.
+          Arturo
           Mention that OONI does not deal with platform censorship (ex. looking
           at blocking of facebook posts or any platform-side censorship or
           restrictions).
@@ -368,6 +368,9 @@ export default class Presentation extends React.Component {
         </Slide>
 
         <Slide transition={["fade"]} bgColor="white">
+            <Notes>
+            Simone
+            </Notes>
           <Heading size={2} caps textColor="secondary">
             OONI Today
           </Heading>
@@ -404,6 +407,9 @@ export default class Presentation extends React.Component {
         </Slide>
 
         <Slide transition={["fade"]} bgImage={images.FlagOfEgypt} bgDarken={0.7} bgSize='120%'>
+          <Notes>
+          Simone
+          </Notes>
           <Appear fid="2" order={2}>
             <CountryReportFinding>More than 100 media websites were found to be blocked</CountryReportFinding>
           </Appear>
@@ -425,6 +431,9 @@ export default class Presentation extends React.Component {
         </Slide>
 
         <Slide transition={["fade"]} bgColor="white">
+          <Notes>
+          Simone
+          </Notes>
           <Layout>
             <NettestType>
               <NettestGroupWebsites size="150px" />
@@ -457,16 +466,23 @@ export default class Presentation extends React.Component {
         </Slide>
 
         <Slide transition={["fade"]} bgColor="white">
+          <Notes>
+          Simone
+          </Notes>
           <Image src={images.OONIEcosystem} />
         </Slide>
 
         <Slide transition={["fade"]} bgColor="white">
+          <Notes>
+          Simone
+          </Notes>
           <Image src={images.MeasurementKitChart} />
           <Heading size={2}>Measurement Kit</Heading>
         </Slide>
 
         <Slide transition={["fade"]} bgColor="white">
           <Notes>
+          Simone
           </Notes>
           <Layout>
           <Fill>
@@ -504,6 +520,7 @@ export default class Presentation extends React.Component {
 
         <Slide transition={["fade"]} bgColor="secondary">
           <Notes>
+          Simone
           </Notes>
           <PhoneCarousel
             screenshots={[
@@ -515,7 +532,7 @@ export default class Presentation extends React.Component {
 
         <Slide transition={["fade"]} bgColor="white">
           <Notes>
-          Arturo
+          Arturo until the end
           </Notes>
           <Heading textColor="secondary" style={{paddingBottom: '40px'}}>Open Data</Heading>
           <Layout>
