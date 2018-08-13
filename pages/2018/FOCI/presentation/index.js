@@ -3,7 +3,7 @@ import React from "react"
 import styled from 'styled-components'
 
 import chroma from 'chroma-js'
-import { colors } from 'ooni-components'
+import { colors, Flex, Box } from 'ooni-components'
 import {
   NettestGroupInstantMessaging,
   NettestGroupMiddleBoxes,
@@ -77,7 +77,18 @@ const images = {
   OONIExplorerScreenshot: require("../assets/OONIExplorer-Screenshot.png"),
   OONIProbeScreenshot: require("../assets/OONIProbe-Screenshot.png"),
   MKScreenshot: require("../assets/MK-Screenshot.png"),
-  MKLogo: require("../assets/Measurement-Kit.png")
+  MKLogo: require("../assets/Measurement-Kit.png"),
+  OONIEcosystem: require("../assets/OONIEcosystem.svg"),
+  FlagOfEgypt: require("../assets/Flag_of_Egypt.svg"),
+  MeasurementKitChart: require("../assets/MeasurementKitChart.png"),
+  OnboardingPopQuiz: require('../assets/OnboardingPopQuiz1.png'),
+  OnboardingThingsToKnow: require('../assets/OnboardingThingsToKnow.png'),
+  OONIArchitectureHorizontal: require('../assets/OONIArchitectureHorizontal.png'),
+  OONIOrchestraArchitecture: require('../assets/OONIOrchestraArchitecture.png'),
+  OONIProbeMobileRevampedDashboard: require('../assets/OONIProbeMobileRevampedDashboard.png'),
+  OONIProbeMobileRevampedResults: require('../assets/OONIProbeMobileRevampedResults.png'),
+  OONIExplorerRevamped: require('../assets/OONIExplorerRevamped.png'),
+  OONIProbeDesktopDashboard: require('../assets/OONIProbeDesktopDashboard.png')
 };
 
 preload(images)
@@ -230,25 +241,6 @@ const WhiteImageContainer = styled.div`
   background-color: ${colors.palette.white};
 `
 
-const EcosystemContainer = styled.div`
-  position: relative;
-  height: 700px;
-  width: 1000px;
-`
-
-const EcosystemItem = styled.div`
-  position: absolute;
-  top: ${props => props.top}px;
-  left: ${props => props.left}px;
-  z-index: -100;
-`
-
-const ArrowContainer = styled.div`
-  position: absolute;
-  top: ${props => props.top}px;
-  left: ${props => props.left}px;
-`
-
 const StyledFloatingLink = styled.div`
 bottom: calc(-120vh - 50%);
 left: calc(-50vw + 50%);
@@ -305,16 +297,28 @@ export default class Presentation extends React.Component {
     return (
       <Deck transition={["zoom", "slide"]} transitionDuration={500} theme={theme}>
         <Slide transition={["zoom"]} bgColor="white">
+          <Notes>
+          Arturo
+          </Notes>
           <Image style={{paddingBottom: '30px'}} width="600px" src={images.OONIHorizontalColor} />
           <Heading size={2}>
           Growing the Open Observatory of Network Interference
           </Heading>
           <Heading size={6}>
-          XXX, Xth XXX 2018
+          FOCI, Baltimore, 13th August 2018
+          </Heading>
+          <Heading size={6}>
+          Arturo Filastò, Simone Basso
           </Heading>
         </Slide>
 
         <Slide transition={["zoom"]} bgColor="white">
+          <Notes>
+          Arturo.
+          Mention that OONI does not deal with platform censorship (ex. looking
+          at blocking of facebook posts or any platform-side censorship or
+          restrictions).
+          </Notes>
           <Image width="300px" src={images.OONIVerticalColor} align='right'/>
           <Heading size={3} textColor="primary">The Open Observatory of Network Interference</Heading>
           <WorldDotsBg>
@@ -323,6 +327,9 @@ export default class Presentation extends React.Component {
         </Slide>
 
         <Slide transition={["fade"]} bgColor="white">
+          <Notes>
+          Arturo
+          </Notes>
           <Heading size={2} caps textColor="secondary">
             OONI Is
           </Heading>
@@ -354,6 +361,9 @@ export default class Presentation extends React.Component {
         </Slide>
 
         <Slide transition={["zoom"]} bgColor="white">
+            <Notes>
+            Arturo
+            </Notes>
             <Image src={images.OONIFOCI} />
         </Slide>
 
@@ -363,25 +373,25 @@ export default class Presentation extends React.Component {
           </Heading>
           <Appear fid="1">
             <Heading size={2} caps fit textColor="primary">
-              <BlueNumber>200+</BlueNumber> countries every month
-            </Heading>
-          </Appear>
-          <Appear fid="1">
-            <Heading size={2} caps fit textColor="primary">
-              <BlueNumber>4.5k</BlueNumber> networks every month
+              <BlueNumber>34</BlueNumber> published research reports
             </Heading>
           </Appear>
           <Appear fid="2">
             <Heading size={2} caps fit textColor="primary">
-              <BlueNumber>20k+</BlueNumber> monthly active users
+              Team of <BlueNumber>7</BlueNumber> people working full-time
             </Heading>
           </Appear>
           <Appear fid="3">
             <Heading size={2} caps fit textColor="primary">
-              <BlueNumber>20</BlueNumber> published research reports
+              <BlueNumber>200+</BlueNumber> countries, <BlueNumber>4.5k</BlueNumber> networks every month
             </Heading>
           </Appear>
           <Appear fid="4">
+            <Heading size={2} caps fit textColor="primary">
+              <BlueNumber>20k+</BlueNumber> monthly active users
+            </Heading>
+          </Appear>
+          <Appear fid="5">
             <div>
             <Heading size={2} caps fit textColor="secondary">
               Is a growing global community
@@ -393,47 +403,29 @@ export default class Presentation extends React.Component {
           </Appear>
         </Slide>
 
-        <Slide transition={["fade"]} bgColor="secondary">
-          <Heading textColor="quarternary">OONI Software Ecosystem</Heading>
+        <Slide transition={["fade"]} bgImage={images.FlagOfEgypt} bgDarken={0.7} bgSize='120%'>
+          <Appear fid="2" order={2}>
+            <CountryReportFinding>More than 100 media websites were found to be blocked</CountryReportFinding>
+          </Appear>
+          <Appear fid="3" order={3}>
+            <CountryReportFinding>"Defense in depth" strategy for implementing
+            blocking: two different middleboxes were found on some
+            networks</CountryReportFinding>
+          </Appear>
+          <Appear fid="4" order={4}>
+            <CountryReportFinding>Ad campaign to hijack blocked websites to revenue generating sites</CountryReportFinding>
+          </Appear>
+          <Appear fid="1" order={1}>
+            <div>
+            <CountryReportHeading>State of Internet Censorship in Egypt</CountryReportHeading>
+            <CountryReportDate>July 2018</CountryReportDate>
+            <Link href='https://ooni.io/post/egypt-internet-censorship/'>https://ooni.io/post/egypt-internet-censorship/</Link>
+            </div>
+          </Appear>
         </Slide>
 
         <Slide transition={["fade"]} bgColor="white">
-          <EcosystemContainer>
-          {Object.keys(ooEcosystem).map(key => {
-            const item = ooEcosystem[key]
-            return (
-              <EcosystemItem key={key} top={item.top} left={item.left}>
-                <Image src={item.src} width={ECOSYSTEM_IMG_W} height={ECOSYSTEM_IMG_H} />
-              </EcosystemItem>
-            )
-          })}
-          </EcosystemContainer>
-        </Slide>
-
-        <Slide transition={["fade"]} bgColor="white">
-          <Heading size={2} textColor="primary">Challenge #1</Heading>
-          <Text>Balancing the risks and acquiring informed consent</Text>
-        </Slide>
-
-        <Slide transition={["fade"]} bgColor="white">
-          <Heading size={2} textColor="primary">Challenge #2</Heading>
-          <Text>The OONI dataset is now totalling more than 10 TB of data and it grows at a rate of ~50GB per day.</Text>
-        </Slide>
-
-        <Slide transition={["fade"]} bgColor="white">
-          <Heading size={2} textColor="primary">Challenge #3</Heading>
-          <Text>Supporting mobile platforms and delivering a consistent user experience.</Text>
-        </Slide>
-
-        <Slide transition={["fade"]} bgColor="white">
-          <Heading size={2} textColor="primary">Challenge #4</Heading>
-          <Text>Making data easy to access and use, but at the same time not
-          making it subject to misinterpretation.</Text>
-        </Slide>
-
-        <Slide transition={["fade"]} bgColor="white">
-          <Heading size={2} textColor="primary">OONI Software tests</Heading>
-          <Layout style={{paddingTop: '40px'}}>
+          <Layout>
             <NettestType>
               <NettestGroupWebsites size="150px" />
               <Heading size={4}>Web Censorship</Heading>
@@ -461,6 +453,16 @@ export default class Presentation extends React.Component {
               <Heading size={4} style={{paddingTop: '20px'}}>Speed & Performance</Heading>
             </NettestType>
           </Layout>
+          <Heading size={2} textColor="primary" caps style={{paddingTop: '40px'}}>OONI tests</Heading>
+        </Slide>
+
+        <Slide transition={["fade"]} bgColor="white">
+          <Image src={images.OONIEcosystem} />
+        </Slide>
+
+        <Slide transition={["fade"]} bgColor="white">
+          <Image src={images.MeasurementKitChart} />
+          <Heading size={2}>Measurement Kit</Heading>
         </Slide>
 
         <Slide transition={["fade"]} bgColor="white">
@@ -503,16 +505,12 @@ export default class Presentation extends React.Component {
         <Slide transition={["fade"]} bgColor="secondary">
           <Notes>
           </Notes>
-          <PhoneCarousel screenshots={[
-            images.MobileAppScreenshot1,
-            images.MobileAppScreenshot2,
-            images.MobileAppScreenshot3
-          ]}/>
-        </Slide>
-
-        <Slide transition={["fade"]} maxHeight="100vh" maxWidth="100vw" bgImage={images.OONIProbeScreenshot}>
-          <Notes>
-          </Notes>
+          <PhoneCarousel
+            screenshots={[
+              images.MobileAppScreenshot1,
+              images.MobileAppScreenshot2,
+              images.MobileAppScreenshot3
+            ]}/>
         </Slide>
 
         <Slide transition={["fade"]} bgColor="white">
@@ -535,28 +533,93 @@ export default class Presentation extends React.Component {
         </Slide>
 
         <Slide transition={["fade"]} maxHeight="100vh" maxWidth="100vw" bgImage={images.OONIExplorerScreenshot}>
-          <Notes>
-          Arturo
-          </Notes>
           <FloatingLink url='https://explorer.ooni.io' />
         </Slide>
 
         <Slide transition={["fade"]} maxHeight="100vh" maxWidth="100vw" bgImage={images.OONIAPIScreenshot}>
-          <Notes>
-          Arturo
-          </Notes>
           <FloatingLink url='https://api.ooni.io' />
         </Slide>
 
         <Slide transition={["fade"]} bgColor="white">
-          <Notes>
-          Arturo
-          </Notes>
           <Heading size={1} textColor="secondary">Mining OONI data</Heading>
           <Text textColor="primary">https://ooni.torproject.org/post/mining-ooni-data/</Text>
         </Slide>
 
-          <Slide transition={["fade"]} bgColor="white">
+        <Slide transition={["fade"]} bgColor="secondary">
+          <Heading textColor="quarternary">Challenges and lessons learned</Heading>
+        </Slide>
+
+        <Slide transition={["fade"]} bgColor="white">
+          <Heading size={2} textColor="primary">Challenge #1</Heading>
+          <Text>Balancing the risks and acquiring informed consent</Text>
+        </Slide>
+
+        <Slide transition={["fade"]} bgColor="white">
+            <Image src={images.OnboardingThingsToKnow} height='600px' />
+        </Slide>
+        <Slide transition={["fade"]} bgColor="white">
+            <Image src={images.OnboardingPopQuiz} height='600px' />
+        </Slide>
+
+        <Slide transition={["fade"]} bgColor="white">
+          <Heading size={2} textColor="primary">Challenge #2</Heading>
+          <Text>The OONI dataset is now totalling more than <BlueNumber>10 TB</BlueNumber> of data and it grows at a rate of <BlueNumber>~50GB</BlueNumber> per day.</Text>
+        </Slide>
+
+        <Slide transition={["fade"]} bgColor="white">
+          <Image src={images.OONIArchitectureHorizontal} width='1024px' />
+        </Slide>
+
+        <Slide transition={["fade"]} bgColor="white">
+          <Heading size={2} textColor="primary">Challenge #3</Heading>
+          <Text>Supporting mobile platforms and delivering a consistent user experience.</Text>
+        </Slide>
+
+        <Slide transition={["fade"]} bgColor="white">
+          <Heading size={2} textColor="primary">Challenge #4</Heading>
+          <Text>Making data easy to access and use, but at the same time not
+          making it subject to misinterpretation.</Text>
+        </Slide>
+
+        <Slide transition={["fade"]} bgColor="secondary">
+          <Heading textColor="quarternary">The future</Heading>
+        </Slide>
+
+        <Slide transition={["fade"]} bgColor="white">
+          <Heading size={2}>Methodology improvements</Heading>
+          <List>
+            <ListItem>R&D of new tests</ListItem>
+            <ListItem>More accurate censorship detection heuristics</ListItem>
+            <ListItem>Improve ability to detect transient/fuzzy anomaly conditions (eg. throttling)</ListItem>
+          </List>
+        </Slide>
+
+        <Slide transition={["fade"]} bgColor="white">
+          <Image src={images.OONIOrchestraArchitecture} />
+          <Heading size={2} textColor="primary">OONI Orchestra</Heading>
+        </Slide>
+
+        <Slide transition={["fade"]} bgColor="white">
+          <Flex align='center' justify='center'>
+          <Box>
+          <Image src={images.OONIProbeMobileRevampedDashboard} />
+          </Box>
+          <Box pl={2}>
+          <Image src={images.OONIProbeMobileRevampedResults} />
+          </Box>
+          </Flex>
+        </Slide>
+
+        <Slide transition={["fade"]} bgColor="white">
+          <Image src={images.OONIExplorerRevamped} />
+        </Slide>
+
+        <Slide transition={["fade"]} bgColor="white">
+          <Image src={images.OONIProbeDesktopDashboard} />
+          <Heading size={2} textColor="primary">New desktop apps</Heading>
+        </Slide>
+
+        <Slide transition={["fade"]} bgColor="white">
           <Heading>Learn More</Heading>
           <List>
           <ListItem><Link href="https://ooni.torproject.org/">https://ooni.torproject.org/</Link></ListItem>
@@ -565,80 +628,9 @@ export default class Presentation extends React.Component {
           <ListItem><Link href="https://gist.github.com/hellais/c520929b9ed6120587860efcf069e44d">Code Example</Link></ListItem>
 
           <Heading size={4}>Contacts</Heading>
-          <ListItem><Link>https://slack.openobservatory.org/</Link></ListItem>
-          <ListItem><Link>contact@openobservatory.org</Link></ListItem>
+          <ListItem><Link href="https://slack.openobservatory.org/">https://slack.openobservatory.org/</Link></ListItem>
+          <ListItem><Link href="mailto:contact+foci18@openobservatory.org">contact@openobservatory.org</Link></ListItem>
           </List>
-          </Slide>
-
-        <Slide transition={["fade"]} bgImage={images.FlagOfEthiopia} bgDarken={0.7} bgSize='120%'>
-          <Appear fid="2" order={2}>
-            <CountryReportFinding>WhatsApp Blocked</CountryReportFinding>
-          </Appear>
-          <Appear fid="3" order={3}>
-            <CountryReportFinding>Deep Packet Inspection (DPI) detected</CountryReportFinding>
-          </Appear>
-          <Appear fid="4" order={4}>
-            <CountryReportFinding>Media outlets, LGBT sites, human rights websites,
-            political opposition sites & censorship circumvention tool sites found to be
-            blocked</CountryReportFinding>
-          </Appear>
-          <Appear fid="1" order={1}>
-            <div>
-            <CountryReportHeading>Ethiopia&#39;s wave of political protests</CountryReportHeading>
-            <CountryReportDate>December 2016</CountryReportDate>
-            </div>
-          </Appear>
-          <Appear fid="4" order={4}>
-            <Link href='https://ooni.torproject.org/post/ethiopia-report/'>https://ooni.torproject.org/post/ethiopia-report/</Link>
-          </Appear>
-        </Slide>
-
-        <Slide transition={["fade"]} bgImage={images.FlagOfIran} bgDarken={0.7} bgSize='120%'>
-          <Notes>
-          <h4>Notes</h4>
-          <ol>
-          <li>Thousands of ooniprobe network measurements collected from 60
-          local networks across Iran over the last three years have confirmed
-          the blocking of 886 domains (and 1,019 URLs in total)</li>
-          <li>Facebook Messenger was blocked using DNS manipulation</li>
-          <li>One of the most advanced censoring regimes</li>
-          <li>Non deterministic censorship</li>
-          <li>Instagram became entirely blocked when it switched to HTTPS</li>
-          <li>Export laws make website also block acccess FROM Iran</li>
-          </ol>
-          </Notes>
-
-          <div>
-            <WhiteImageContainer>
-            <Image height='600px' src={images.BlockedDomainsInIran} />
-            </WhiteImageContainer>
-            <CountryReportDate>September 2017</CountryReportDate>
-            <Link href='https://ooni.torproject.org/post/iran-internet-censorship/'>https://ooni.torproject.org/post/iran-internet-censorship/</Link>
-          </div>
-        </Slide>
-
-        <Slide transition={["fade"]} bgImage={images.FlagOfSpain} bgDarken={0.7} bgSize='120%'>
-          <Notes>
-            <h4>Speaker notes</h4>
-            <ol>
-            <li>Confirm the blocking of at least 25 sites related to the Catalan referendum</li>
-            </ol>
-          </Notes>
-          <Appear fid="2" order={2}>
-            <CountryReportFinding>At least 25 websites related to the Catalonia Independence Referendum were blocked.</CountryReportFinding>
-          </Appear>
-          <Appear fid="3" order={3}>
-            <CountryReportFinding>The .cat registry was raided and forced to take down many websites.</CountryReportFinding>
-          </Appear>
-          <Appear fid="1" order={1}>
-            <div>
-            <CountryReportHeading>Spain</CountryReportHeading>
-            <CountryReportDate>October 2017</CountryReportDate>
-            </div>
-          </Appear>
-          <Appear fid="4" order={4}>
-            <Link href='https://ooni.torproject.org/post/internet-censorship-catalonia-independence-referendum/'>https://ooni.torproject.org/post/internet-censorship-catalonia-independence-referendum/</Link>
-          </Appear>
         </Slide>
 
       </Deck>
