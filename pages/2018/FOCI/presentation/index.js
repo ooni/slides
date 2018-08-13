@@ -604,17 +604,17 @@ export default class Presentation extends React.Component {
         </Slide>
 
         <Slide transition={["fade"]} bgColor="white">
+          <Image src={images.OONIOrchestraArchitecture} />
+          <Heading size={2} textColor="primary">OONI Orchestra</Heading>
+        </Slide>
+
+        <Slide transition={["fade"]} bgColor="white">
           <Heading size={2}>Methodology improvements</Heading>
           <List>
             <ListItem>R&D of new tests</ListItem>
             <ListItem>More accurate censorship detection heuristics</ListItem>
             <ListItem>Improve ability to detect transient/fuzzy anomaly conditions (eg. throttling)</ListItem>
           </List>
-        </Slide>
-
-        <Slide transition={["fade"]} bgColor="white">
-          <Image src={images.OONIOrchestraArchitecture} />
-          <Heading size={2} textColor="primary">OONI Orchestra</Heading>
         </Slide>
 
         <Slide transition={["fade"]} bgColor="white">
