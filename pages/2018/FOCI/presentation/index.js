@@ -88,7 +88,8 @@ const images = {
   OONIProbeMobileRevampedDashboard: require('../assets/OONIProbeMobileRevampedDashboard.png'),
   OONIProbeMobileRevampedResults: require('../assets/OONIProbeMobileRevampedResults.png'),
   OONIExplorerRevamped: require('../assets/OONIExplorerRevamped.png'),
-  OONIProbeDesktopDashboard: require('../assets/OONIProbeDesktopDashboard.png')
+  OONIProbeDesktopDashboard: require('../assets/OONIProbeDesktopDashboard.png'),
+  OONIBlob: require('../assets/ooniblob.jpg')
 };
 
 preload(images)
@@ -248,6 +249,13 @@ position: absolute;
 width: 100vw;
 height: 100vh;
 `
+const StyledFloatingLinkRight = styled.div`
+bottom: calc(-120vh - 50%);
+left: calc(50vw - 50%);
+position: absolute;
+width: 100vw;
+height: 100vh;
+`
 
 const StyledPageLinkContainer = styled.div`
   text-align: left;
@@ -273,6 +281,36 @@ const FloatingLink = ({url}) => (
       <StyledPageLink href={url}>{url}</StyledPageLink>
     </StyledPageLinkContainer>
   </StyledFloatingLink>
+)
+
+const FloatingLinkRight = ({url}) => (
+  <StyledFloatingLinkRight>
+    <StyledPageLinkContainer>
+      <StyledPageLink href={url}>{url}</StyledPageLink>
+    </StyledPageLinkContainer>
+  </StyledFloatingLinkRight>
+)
+
+const StyledFloatingQuote= styled.div`
+  background-color: white;
+  padding-top: 5px;
+  padding-bottom: 5px;
+`
+
+const StyledFloatingQuoteContainer = styled.div`
+bottom: calc(-100vh - 50%);
+left: calc(-50vw + 50%);
+position: absolute;
+width: 100vw;
+height: 100vh;
+`
+
+const FloatingQuote = ({children}) => (
+  <StyledFloatingQuoteContainer>
+    <StyledFloatingQuote>
+      <Text>{children}</Text>
+    </StyledFloatingQuote>
+  </StyledFloatingQuoteContainer>
 )
 
 const NettestType = styled(Fill)`
@@ -480,49 +518,12 @@ export default class Presentation extends React.Component {
           <Heading size={2}>Measurement Kit</Heading>
         </Slide>
 
-        <Slide transition={["fade"]} bgColor="white">
-          <Notes>
-          Simone
-          </Notes>
-          <Layout>
-          <Fill>
-          <Image src={images.ProbeVerticalColor} width={200}/>
-          </Fill>
-          <Fill>
-            <Heading size={4} fit caps textColor="secondary">Measurement App For</Heading>
-            <Layout style={{paddingTop: '20px'}}>
-              <Fill style={{marginRight: '30px'}}>
-                <Layout style={{paddingBottom: '20px'}}>
-                  <Fill>
-                  <FaApple width='100%' height='100%' />
-                  </Fill>
-                  <Fill>
-                  <FaAndroid width='100%' height='100%'/>
-                  </Fill>
-                </Layout>
-                <Heading size={4} textColor="primary">Android</Heading>
-                <Heading size={4} textColor="primary">iOS</Heading>
-              </Fill>
-              <Fill style={{marginLeft: '30px'}}>
-                <Layout style={{paddingBottom: '20px'}}>
-                  <Fill>
-                    <MdLaptop width='60%' height='100%' />
-                  </Fill>
-                </Layout>
-                <Heading size={4} textColor="primary">macOS</Heading>
-                <Heading size={4} textColor="primary">Linux</Heading>
-              </Fill>
-            </Layout>
-          </Fill>
-          </Layout>
-        </Slide>
-
-
         <Slide transition={["fade"]} bgColor="secondary">
           <Notes>
           Simone
           </Notes>
           <PhoneCarousel
+            withIcons
             screenshots={[
               images.MobileAppScreenshot1,
               images.MobileAppScreenshot2,
@@ -534,7 +535,6 @@ export default class Presentation extends React.Component {
           <Notes>
           Arturo until the end
           </Notes>
-          <Heading textColor="secondary" style={{paddingBottom: '40px'}}>Open Data</Heading>
           <Layout>
             <Fill style={{'text-align': 'left', marginRight: '40px'}}>
               <Image style={{margin: '0'}} src={images.PipelineHorizontalMonochrome} height="100px" />
@@ -547,6 +547,7 @@ export default class Presentation extends React.Component {
               <Text>Allows the public to <b>verify</b> our findings</Text>
             </Fill>
           </Layout>
+          <Heading textColor="primary" size={2} caps style={{paddingBottom: '40px'}}>Open Data</Heading>
         </Slide>
 
         <Slide transition={["fade"]} maxHeight="100vh" maxWidth="100vw" bgImage={images.OONIExplorerScreenshot}>
@@ -557,9 +558,9 @@ export default class Presentation extends React.Component {
           <FloatingLink url='https://api.ooni.io' />
         </Slide>
 
-        <Slide transition={["fade"]} bgColor="white">
-          <Heading size={1} textColor="secondary">Mining OONI data</Heading>
-          <Text textColor="primary">https://ooni.torproject.org/post/mining-ooni-data/</Text>
+        <Slide transition={["fade"]} bgImage={images.OONIBlob}>
+          <FloatingQuote>Big data is anything that won&#39;t fit in Excel</FloatingQuote>
+          <FloatingLinkRight url='https://ooni.io/post/mining-ooni-data/' />
         </Slide>
 
         <Slide transition={["fade"]} bgColor="secondary">
