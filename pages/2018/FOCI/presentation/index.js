@@ -353,6 +353,14 @@ export default class Presentation extends React.Component {
         <Slide transition={["zoom"]} bgColor="white">
           <Notes>
           Arturo
+          OONI is a Free software project (under the Tor Project) aimed at
+          empowering decentralized efforts in increasing transparency of
+          Internet Censorship around the world.
+
+          The project started in 2012 and have since collected millions of
+          measurements from over 200 countries around the world,
+          shedding light on various forms of network interference.
+
           Mention that OONI does not deal with platform censorship (ex. looking
           at blocking of facebook posts or any platform-side censorship or
           restrictions).
