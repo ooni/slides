@@ -1,5 +1,5 @@
-import React from "react"
-import PropTypes from "prop-types"
+import React from 'react'
+import PropTypes from 'prop-types'
 import NoSSR from 'react-no-ssr'
 
 const PresentationWrapper = () => {
