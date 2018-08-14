@@ -348,6 +348,7 @@ export default class Presentation extends React.Component {
           Arturo Filastò, Simone Basso
           </Heading>
           <Image width='300px' style={{paddingTop: '30px'}} src={images.OONIHorizontalColor} />
+          <Text style={{color: colors.palette.blue5}}>https://slides.ooni.io/2018/FOCI</Text>
         </Slide>
 
         <Slide transition={["zoom"]} bgColor="white">
