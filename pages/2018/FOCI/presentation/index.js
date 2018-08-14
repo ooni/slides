@@ -647,6 +647,7 @@ export default class Presentation extends React.Component {
           <Heading size={4}>Contacts</Heading>
           <ListItem><Link href="https://slack.openobservatory.org/">https://slack.openobservatory.org/</Link></ListItem>
           <ListItem><Link href="mailto:contact+foci18@openobservatory.org">contact@openobservatory.org</Link></ListItem>
+          <ListItem><Link href="https://twitter.com/openobservatory/">@OpenObservatory</Link></ListItem>
           </List>
         </Slide>
 
