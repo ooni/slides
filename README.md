@@ -8,5 +8,5 @@ To build the website in docker to avoid `node` in the OS one can run:
 
 ```
 host$ docker run -ti -v $PWD:/mnt node:carbon /bin/bash
-container# cd /mnt && yarn run dev
+container# cd /mnt && yarn instal && yarn run dev
 ```
