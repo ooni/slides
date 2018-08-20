@@ -60,7 +60,6 @@ const images = {
   DDT: require("../assets/ddt-vs-kremlin.png"), 
   Quack: require("../assets/what-also-floats.jpg"), 
   RavingIran: require("../assets/raving-iran.jpg"), 
-  NotEnoughBillboards: require("../assets/not-enough-billboards.jpg"),
   RKNTyan: require("../assets/aquam1ne-rkn-tyan-amazon.jpg"),
   OONIHorizontalColor: require("ooni-components/components/svgs/logos/OONI-HorizontalColor.svg"),
   OONIVerticalColor: require("ooni-components/components/svgs/logos/OONI-VerticalColor.svg"),
