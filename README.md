@@ -7,6 +7,6 @@ Add `?print&export` for background-free printer-friendly version.
 To build the website in docker to avoid `node` in the OS one can run:
 
 ```
-host$ docker run -ti -v $PWD:/mnt node:carbon /bin/bash
-container# cd /mnt && yarn instal && yarn run dev
+host$ docker run --rm -ti -v $PWD:/mnt node:carbon /bin/bash
+container# cd /mnt && yarn install && yarn run dev
 ```
