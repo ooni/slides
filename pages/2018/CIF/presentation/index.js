@@ -289,7 +289,7 @@ export default class Presentation extends React.Component {
               CryptoInstallFest 5<br/>
               Москва, 22 сентября 2018
           </Heading>
-          <Link href="https://slides.ooni.io/2018/CIF">slides.ooni.io/2018/CC</Link>
+          <Link href="https://slides.ooni.io/2018/CIF">slides.ooni.io/2018/CIF</Link>
         </Slide>
 
         <Slide transition={["fade"]} bgColor="white">
@@ -919,7 +919,7 @@ export default class Presentation extends React.Component {
           <hr/>
           <Link href="https://www.youtube.com/watch?v=YccwFWiSryY">... и гнева Роскомнадзора</Link>
           <hr/>
-          <Link href="https://slides.ooni.io/2018/CIF">slides.ooni.io/2018/CC</Link>
+          <Link href="https://slides.ooni.io/2018/CIF">slides.ooni.io/2018/CIF</Link>
         </Slide>
       </Deck>
     );
