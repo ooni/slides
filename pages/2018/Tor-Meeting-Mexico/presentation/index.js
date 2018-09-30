@@ -87,8 +87,10 @@ const images = {
   OONIOrchestraArchitecture: require('../assets/OONIOrchestraArchitecture.png'),
   OONIProbeMobileRevampedDashboard: require('../assets/OONIProbeMobileRevampedDashboard.png'),
   OONIProbeMobileRevampedResults: require('../assets/OONIProbeMobileRevampedResults.png'),
+  OONICLI1: require('../assets/OONICLI.1.png'),
+  OONICLI2: require('../assets/OONICLI.2.png'),
   OONIExplorerRevamped: require('../assets/OONIExplorerRevamped.png'),
-  OONIProbeDesktopDashboard: require('../assets/OONIProbeDesktopDashboard.png'),
+  OONIProbeDesktopDashboard: require('../assets/OONIProbeDesktop.png'),
   OONIBlob: require('../assets/ooniblob.jpg')
 };
 
@@ -335,9 +337,6 @@ export default class Presentation extends React.Component {
     return (
       <Deck transition={["zoom", "slide"]} transitionDuration={500} theme={theme}>
         <Slide transition={["zoom"]} bgColor="white">
-          <Notes>
-          Arturo
-          </Notes>
           <Heading size={2}>
           State of the Onion:
           </Heading>
@@ -349,20 +348,6 @@ export default class Presentation extends React.Component {
         </Slide>
 
         <Slide transition={["zoom"]} bgColor="white">
-          <Notes>
-          Arturo
-          OONI is a Free software project (under the Tor Project) aimed at
-          empowering decentralized efforts in increasing transparency of
-          Internet Censorship around the world.
-
-          The project started in 2012 and have since collected millions of
-          measurements from over 200 countries around the world,
-          shedding light on various forms of network interference.
-
-          Mention that OONI does not deal with platform censorship (ex. looking
-          at blocking of facebook posts or any platform-side censorship or
-          restrictions).
-          </Notes>
           <Image width="300px" src={images.OONIVerticalColor} align='right'/>
           <Heading size={3} textColor="primary">The Open Observatory of Network Interference</Heading>
           <WorldDotsBg>
@@ -371,43 +356,6 @@ export default class Presentation extends React.Component {
         </Slide>
 
         <Slide transition={["fade"]} bgColor="white">
-          <Notes>
-          Arturo
-          </Notes>
-          <Heading size={2} caps textColor="secondary">
-            OONI Is
-          </Heading>
-          <Appear fid="1">
-            <Heading size={2} caps fit textColor="primary">
-              Open Methodologies
-            </Heading>
-          </Appear>
-          <Appear fid="2">
-            <Heading size={2} caps fit textColor="primary">
-              Open Source Software
-            </Heading>
-          </Appear>
-          <Appear fid="3">
-            <Heading size={2} caps fit textColor="primary">
-              Open Data
-            </Heading>
-          </Appear>
-          <Appear fid="4">
-            <div>
-            <Heading size={3} caps fit textColor="secondary">
-              For Reproducible
-            </Heading>
-            <Heading size={3} caps fit textColor="secondary">
-              Research!
-            </Heading>
-            </div>
-          </Appear>
-        </Slide>
-
-        <Slide transition={["fade"]} bgColor="white">
-            <Notes>
-            Simone
-            </Notes>
           <Heading size={2} caps textColor="secondary">
             OONI Today
           </Heading>
@@ -431,16 +379,28 @@ export default class Presentation extends React.Component {
               <BlueNumber>20k+</BlueNumber> monthly active users
             </Heading>
           </Appear>
-          <Appear fid="5">
-            <div>
-            <Heading size={2} caps fit textColor="secondary">
-              Is a growing global community
+        </Slide>
+
+
+        <Slide transition={["fade"]} bgColor="white">
+          <Flex align='center' justify='center'>
+          <Box>
+          <Image src={images.OONICLI1} />
+          </Box>
+          <Box pl={2}>
+          <Image src={images.OONICLI2} />
+          </Box>
+          </Flex>
+            <Heading size={2} textColor="primary">
+            OONI Probe CLI
             </Heading>
-            <Heading size={2} caps fit textColor="secondary">
-             of censorship measurement researchers!
-            </Heading>
-            </div>
-          </Appear>
+        </Slide>
+
+        <Slide transition={["fade"]} bgColor="white">
+          <Image src={images.OONIProbeDesktopDashboard} />
+            <Heading size={2} textColor="primary">
+            OONI Probe Desktop app
+          </Heading>
         </Slide>
 
         <Slide transition={["fade"]} bgColor="white">
@@ -452,14 +412,16 @@ export default class Presentation extends React.Component {
           <Image src={images.OONIProbeMobileRevampedResults} />
           </Box>
           </Flex>
+          <Heading size={2} textColor="primary">
+            OONI Probe Mobile Revamp
+          </Heading>
         </Slide>
 
         <Slide transition={["fade"]} bgColor="white">
           <Image src={images.OONIExplorerRevamped} />
-        </Slide>
-
-        <Slide transition={["fade"]} bgColor="white">
-          <Image src={images.OONIProbeDesktopDashboard} />
+          <Heading size={2} textColor="primary">
+            OONI Probe Explorer Revamp
+          </Heading>
         </Slide>
 
         <Slide transition={["fade"]} bgColor="white">
