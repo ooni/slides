@@ -383,6 +383,9 @@ export default class Presentation extends React.Component {
         </Slide>
 
         <Slide transition={["fade"]} bgColor="white">
+          <Notes>
+          Mention also collateral damange of blocking telegram in Russia.
+          </Notes>
         <Heading size={2} caps fit textColor="primary">
           <BlueNumber>9</BlueNumber> new research reports since March 2018
         </Heading>
@@ -425,6 +428,7 @@ export default class Presentation extends React.Component {
 
         <Slide transition={["fade"]} bgColor="white">
           <Image src={images.OONIParknet} width='800px'/>
+          <Link>https://youtu.be/QslsL84jx4E</Link>
         </Slide>
 
         <Slide transition={["fade"]} bgColor="white">
@@ -479,7 +483,7 @@ export default class Presentation extends React.Component {
 
           <Heading size={4}>Contacts</Heading>
           <ListItem><Link href="https://slack.openobservatory.org/">https://slack.openobservatory.org/</Link></ListItem>
-          <ListItem><Link href="mailto:contact+foci18@openobservatory.org">contact@openobservatory.org</Link></ListItem>
+          <ListItem><Link href="mailto:contact@openobservatory.org">contact@openobservatory.org</Link></ListItem>
           <ListItem><Link href="https://twitter.com/openobservatory/">@OpenObservatory</Link></ListItem>
           </List>
         </Slide>
