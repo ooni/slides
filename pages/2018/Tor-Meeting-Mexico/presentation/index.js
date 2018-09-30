@@ -85,13 +85,19 @@ const images = {
   OnboardingThingsToKnow: require('../assets/OnboardingThingsToKnow.png'),
   OONIArchitectureHorizontal: require('../assets/OONIArchitectureHorizontal.png'),
   OONIOrchestraArchitecture: require('../assets/OONIOrchestraArchitecture.png'),
-  OONIProbeMobileRevampedDashboard: require('../assets/OONIProbeMobileRevampedDashboard.png'),
-  OONIProbeMobileRevampedResults: require('../assets/OONIProbeMobileRevampedResults.png'),
+  OONIProbeMobileRevampedDashboard: require('../assets/OONIProbeMobile2.jpg'),
+  OONIProbeMobileRevampedResults: require('../assets/OONIProbeMobile1.jpg'),
   OONICLI1: require('../assets/OONICLI.1.png'),
   OONICLI2: require('../assets/OONICLI.2.png'),
   OONIExplorerRevamped: require('../assets/OONIExplorerRevamped.png'),
   OONIProbeDesktopDashboard: require('../assets/OONIProbeDesktop.png'),
-  OONIBlob: require('../assets/ooniblob.jpg')
+  OONIBlob: require('../assets/ooniblob.jpg'),
+
+  PartnerKarisma: require('../assets/PartnerKarisma.jpg'),
+  PartnerParadigm: require('../assets/PartnerParadigm.jpg'),
+  PartnerTAHURID: require('../assets/PartnerTAHURID.jpg'),
+  PartnerTEDIC: require('../assets/PartnerTEDIC.jpg'),
+  OONIParknet: require('../assets/OONIParknet.png'),
 };
 
 preload(images)
@@ -356,33 +362,75 @@ export default class Presentation extends React.Component {
         </Slide>
 
         <Slide transition={["fade"]} bgColor="white">
-          <Heading size={2} caps textColor="secondary">
-            OONI Today
+          <Heading size={1} caps textColor="secondary">
+          Key Stats
           </Heading>
-          <Appear fid="1">
-            <Heading size={2} caps fit textColor="primary">
-              <BlueNumber>34</BlueNumber> published research reports
-            </Heading>
-          </Appear>
-          <Appear fid="2">
-            <Heading size={2} caps fit textColor="primary">
-              Team of <BlueNumber>7</BlueNumber> people working full-time
-            </Heading>
-          </Appear>
-          <Appear fid="3">
-            <Heading size={2} caps fit textColor="primary">
-              <BlueNumber>200+</BlueNumber> countries, <BlueNumber>4.5k</BlueNumber> networks every month
-            </Heading>
-          </Appear>
-          <Appear fid="4">
-            <Heading size={2} caps fit textColor="primary">
-              <BlueNumber>20k+</BlueNumber> monthly active users
-            </Heading>
-          </Appear>
+          <Heading size={2} caps fit textColor="primary">
+            <BlueNumber>30</BlueNumber> published research reports
+          </Heading>
+          <Heading size={2} caps fit textColor="primary">
+            <BlueNumber>25</BlueNumber> partnerships
+          </Heading>
+          <Heading size={2} caps fit textColor="primary">
+            Team of <BlueNumber>7</BlueNumber> people
+          </Heading>
+          <Heading size={2} caps fit textColor="primary">
+            <BlueNumber>200+</BlueNumber> countries, <BlueNumber>4.5k</BlueNumber> networks every month
+          </Heading>
+          <Heading size={2} caps fit textColor="primary">
+            <BlueNumber>20k+</BlueNumber> monthly active users
+          </Heading>
+        </Slide>
+
+        <Slide transition={["fade"]} bgColor="white">
+        <Heading size={2} caps fit textColor="primary">
+          <BlueNumber>9</BlueNumber> new research reports since March 2018
+        </Heading>
+        <Text>The State of Internet Censorship in <BlueNumber>Venezuela</BlueNumber></Text>
+        <Text><BlueNumber>South Sudan</BlueNumber>: Measuring Internet Censorship in the World&#39;s Youngest Nation</Text>
+        <Text><BlueNumber>Mali</BlueNumber>: Social media disruptions amid 2018 presidential election?</Text>
+        <Text>The State of Internet Censorship in <BlueNumber>Egypt</BlueNumber></Text>
+        <Text><BlueNumber>Ethiopia</BlueNumber>: Verifying the unblocking of websites</Text>
+        <Text><BlueNumber>Nigeria</BlueNumber>: Measuring Internet Censorship</Text>
+        <Text><BlueNumber>Sierra Leone</BlueNumber>: Network disruptions amid 2018 runoff elections</Text>
+        <Link>https://ooni.torproject.org/post/</Link>
+        </Slide>
+
+        <Slide transition={["fade"]} bgColor="white">
+          <Notes>
+          Karisma, Colombia
+          Paradigm, Nigeria
+          Tahurid, South Sudan
+          Tediic, Paraguay
+          </Notes>
+          <Flex>
+          <Box w={1/2}>
+          <Image src={images.PartnerKarisma} width='300px' />
+          </Box>
+          <Box w={1/2}>
+          <Image src={images.PartnerParadigm} width='300px'/>
+          </Box>
+          <Box w={1/2}>
+          <Image src={images.PartnerTAHURID} width='300px'/>
+          </Box>
+          <Box w={1/2}>
+          <Image src={images.PartnerTEDIC} width='300px'/>
+          </Box>
+          </Flex>
+          <Heading size={2} caps fit textColor="primary">
+            <BlueNumber>4</BlueNumber> new partners since March 2018
+          </Heading>
         </Slide>
 
 
         <Slide transition={["fade"]} bgColor="white">
+          <Image src={images.OONIParknet} width='800px'/>
+        </Slide>
+
+        <Slide transition={["fade"]} bgColor="white">
+          <Heading size={2} textColor="primary">
+          OONI Probe 3.0.0
+          </Heading>
           <Flex align='center' justify='center'>
           <Box>
           <Image src={images.OONICLI1} />
@@ -391,37 +439,35 @@ export default class Presentation extends React.Component {
           <Image src={images.OONICLI2} />
           </Box>
           </Flex>
-            <Heading size={2} textColor="primary">
-            OONI Probe CLI
-            </Heading>
+          <Link>https://github.com/ooni/probe-cli/releases/tag/v3.0.0-beta.1</Link>
         </Slide>
 
         <Slide transition={["fade"]} bgColor="white">
-          <Image src={images.OONIProbeDesktopDashboard} />
-            <Heading size={2} textColor="primary">
-            OONI Probe Desktop app
+          <Heading size={4} textColor="primary">
+            OONI Probe Desktop
           </Heading>
+          <Image src={images.OONIProbeDesktopDashboard} />
         </Slide>
 
         <Slide transition={["fade"]} bgColor="white">
-          <Flex align='center' justify='center'>
-          <Box>
-          <Image src={images.OONIProbeMobileRevampedDashboard} />
-          </Box>
-          <Box pl={2}>
-          <Image src={images.OONIProbeMobileRevampedResults} />
-          </Box>
-          </Flex>
-          <Heading size={2} textColor="primary">
+          <Heading size={4} textColor="primary">
             OONI Probe Mobile Revamp
           </Heading>
+          <Flex align='center' justify='center'>
+          <Box>
+          <Image src={images.OONIProbeMobileRevampedDashboard} width='300px'/>
+          </Box>
+          <Box pl={2}>
+          <Image src={images.OONIProbeMobileRevampedResults} width='300px'/>
+          </Box>
+          </Flex>
         </Slide>
 
         <Slide transition={["fade"]} bgColor="white">
-          <Image src={images.OONIExplorerRevamped} />
-          <Heading size={2} textColor="primary">
-            OONI Probe Explorer Revamp
+          <Heading size={4} textColor="primary">
+            OONI Explorer Revamp
           </Heading>
+          <Image src={images.OONIExplorerRevamped} />
         </Slide>
 
         <Slide transition={["fade"]} bgColor="white">
