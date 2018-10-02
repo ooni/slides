@@ -344,18 +344,19 @@ export default class Presentation extends React.Component {
       <Deck transition={["zoom", "slide"]} transitionDuration={500} theme={theme}>
         <Slide transition={["zoom"]} bgColor="white">
           <Heading size={2}>
-          State of the Onion
+          El Estado de la Cebolla
           </Heading>
           <Image width='300px' style={{paddingTop: '30px'}} src={images.OONIHorizontalColor} />
           <Heading size={6}>
-          Tor Meeting, Mexico City, 2nd October 2018
+          Tor Meeting, Mexico City, Octubre 2, 2018
           </Heading>
-          <Text style={{color: colors.palette.blue5}}>https://slides.ooni.io/2018/Tor-Meeting-Mexico</Text>
+          <Text style={{color: colors.palette.blue5}}>https://slides.ooni.io/2018/Tor-Meeting-Mexico-ES</Text>
         </Slide>
 
         <Slide transition={["zoom"]} bgColor="white">
           <Image width="300px" src={images.OONIVerticalColor} align='right'/>
           <Heading size={3} textColor="primary">The Open Observatory of Network Interference</Heading>
+          <Heading size={5} textColor="primary">Observatorio Abierto de Interferencia de la Red</Heading>
           <WorldDotsBg>
             <WorldDots primaryColor={colors.palette.blue5} highlightColor={colors.palette.blue9}/>
           </WorldDotsBg>
@@ -368,17 +369,17 @@ export default class Presentation extends React.Component {
           <Layout>
             <NettestType>
               <NettestGroupWebsites size="150px" />
-              <Heading size={4}>Web Censorship</Heading>
+              <Heading size={4}>Censura web</Heading>
             </NettestType>
 
             <NettestType>
               <NettestGroupInstantMessaging size="150px" />
-              <Heading size={4}>Instant Messaging Apps</Heading>
+              <Heading size={4}>Mensajeria instantànea</Heading>
             </NettestType>
 
             <NettestType>
               <Image src={images.OnionBlue} height="145px" />
-              <Heading size={4}>Censorship Circumvention</Heading>
+              <Heading size={4}>Evasión de censura</Heading>
             </NettestType>
 
           </Layout>
@@ -390,7 +391,7 @@ export default class Presentation extends React.Component {
 
             <NettestType>
               <NettestGroupPerformance size="150px" />
-              <Heading size={4} style={{paddingTop: '20px'}}>Velocidad y redimiento</Heading>
+              <Heading size={4} style={{paddingTop: '20px'}}>Velocidad y rendimiento</Heading>
             </NettestType>
           </Layout>
           <Heading size={2} textColor="primary" caps style={{paddingTop: '40px'}}>Test OONI</Heading>
@@ -401,16 +402,16 @@ export default class Presentation extends React.Component {
           Puntos claves
           </Heading>
           <Heading size={2} caps fit textColor="primary">
-            <BlueNumber>30</BlueNumber> informes de ricerca publicadas
+          <BlueNumber>30</BlueNumber> reportes publicados
           </Heading>
           <Heading size={2} caps fit textColor="primary">
-            <BlueNumber>25</BlueNumber> accuerdos con associaciònes
+            <BlueNumber>25</BlueNumber> allianzas con organizaciones
           </Heading>
           <Heading size={2} caps fit textColor="primary">
-            Es un equipo de <BlueNumber>7</BlueNumber> personas
+            Somos un equipo de <BlueNumber>7</BlueNumber> personas
           </Heading>
           <Heading size={2} caps fit textColor="primary">
-            <BlueNumber>200+</BlueNumber> paises, <BlueNumber>4.5k</BlueNumber> redes cada mes
+            <BlueNumber>4.5k</BlueNumber> redes analizadas cada mes, en <BlueNumber>200+</BlueNumber> paises
           </Heading>
           <Heading size={2} caps fit textColor="primary">
             <BlueNumber>20k+</BlueNumber> usuarios activos por mes
@@ -456,7 +457,7 @@ export default class Presentation extends React.Component {
           </Box>
           </Flex>
           <Heading size={2} caps fit textColor="primary">
-            <BlueNumber>4</BlueNumber> new partners since March 2018
+            <BlueNumber>4</BlueNumber> nuoevos aliados desde marzo 2018
           </Heading>
         </Slide>
 
@@ -510,13 +511,13 @@ export default class Presentation extends React.Component {
         </Slide>
 
         <Slide transition={["fade"]} bgColor="white">
-          <Heading>Learn More</Heading>
+          <Heading>Conoce mas</Heading>
           <List>
           <ListItem><Link href="https://ooni.torproject.org/">https://ooni.torproject.org/</Link></ListItem>
           <ListItem><Link href="https://api.ooni.io/">https://api.ooni.io/</Link></ListItem>
           <ListItem><Link href="https://explorer.ooni.io/">https://explorer.ooni.io/</Link></ListItem>
 
-          <Heading size={4}>Contacts</Heading>
+          <Heading size={4}>Contactos</Heading>
           <ListItem><Link href="https://slack.openobservatory.org/">https://slack.openobservatory.org/</Link></ListItem>
           <ListItem><Link href="mailto:contact@openobservatory.org">contact@openobservatory.org</Link></ListItem>
           <ListItem><Link href="https://twitter.com/openobservatory/">@OpenObservatory</Link></ListItem>
