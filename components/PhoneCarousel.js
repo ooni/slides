@@ -89,7 +89,7 @@ const ProbeIcons = () => (
       <Box pl={2}>
       <Text>
         <MdLaptop size={40} style={{paddingRight: '10px'}}/>
-      macOS, Linux</Text>
+      Windows, macOS, Linux</Text>
       </Box>
       </Flex>
     </ProbePlatformsContainer>
